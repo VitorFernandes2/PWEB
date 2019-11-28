@@ -1,5 +1,6 @@
 namespace ERecarga.Migrations
 {
+    using ERecarga.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
@@ -22,6 +23,7 @@ namespace ERecarga.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             string[] roleNames = { "Admin", "Owner", "User" };
 
@@ -38,6 +40,14 @@ namespace ERecarga.Migrations
                 }
 
             }
+
+            var user = new ApplicationUser { UserName = "admin@admin.com", Email = "admin@admin.com" };
+            var admin = userManager.Create(user, "Admin");
+            if (admin.Succeeded)
+            {
+                userManager.AddToRole(user.Id, "Admin");
+            }
+
 
         }
     }

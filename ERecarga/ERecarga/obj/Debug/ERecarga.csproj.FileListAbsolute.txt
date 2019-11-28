@@ -105,3 +105,4 @@ C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERe
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.InitialCreate.resources
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.csproj.GenerateResource.cache
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.createRoles.resources
+C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.adminToRole.resources

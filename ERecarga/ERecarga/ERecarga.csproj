@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201911281126223_createRoles.Designer.cs">
       <DependentUpon>201911281126223_createRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911281155224_adminToRole.cs" />
+    <Compile Include="Migrations\201911281155224_adminToRole.Designer.cs">
+      <DependentUpon>201911281155224_adminToRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -267,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911281126223_createRoles.resx">
       <DependentUpon>201911281126223_createRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911281155224_adminToRole.resx">
+      <DependentUpon>201911281155224_adminToRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
