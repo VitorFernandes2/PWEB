@@ -33,8 +33,6 @@ namespace ERecarga.Models
 
         public virtual DbSet<Region> Regions { get; set; }
 
-
-
     }
 
 }
