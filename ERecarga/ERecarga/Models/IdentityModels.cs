@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ERecarga.DAL;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -29,5 +30,11 @@ namespace ERecarga.Models
         {
             return new ApplicationDbContext();
         }
+
+        public virtual DbSet<Region> Regions { get; set; }
+
+
+
     }
+
 }

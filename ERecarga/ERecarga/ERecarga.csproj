@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\Region.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,6 +186,10 @@
     <Compile Include="Migrations\201911281155224_adminToRole.cs" />
     <Compile Include="Migrations\201911281155224_adminToRole.Designer.cs">
       <DependentUpon>201911281155224_adminToRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911291233467_NewTableRegions.cs" />
+    <Compile Include="Migrations\201911291233467_NewTableRegions.Designer.cs">
+      <DependentUpon>201911291233467_NewTableRegions.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -275,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911281155224_adminToRole.resx">
       <DependentUpon>201911281155224_adminToRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911291233467_NewTableRegions.resx">
+      <DependentUpon>201911291233467_NewTableRegions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
