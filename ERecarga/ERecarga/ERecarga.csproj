@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201911291233467_NewTableRegions.Designer.cs">
       <DependentUpon>201911291233467_NewTableRegions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911291806158_RegionMappingCreation1.cs" />
+    <Compile Include="Migrations\201911291806158_RegionMappingCreation1.Designer.cs">
+      <DependentUpon>201911291806158_RegionMappingCreation1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -285,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911291233467_NewTableRegions.resx">
       <DependentUpon>201911291233467_NewTableRegions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911291806158_RegionMappingCreation1.resx">
+      <DependentUpon>201911291806158_RegionMappingCreation1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
