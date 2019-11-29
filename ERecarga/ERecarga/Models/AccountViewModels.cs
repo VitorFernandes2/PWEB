@@ -84,12 +84,9 @@ namespace ERecarga.Models
 
         [Required]
         [Display(Name = "Tipo de Utilzador")]
-        public SelectList Roles { get; set; }
+        public string Role { get; set; }
 
-        public RegisterViewModel()
-        {
-            this.Roles = ListaRoles.createListItems();
-        }
+        public SelectList Roles = ListaRoles.createListItems();
 
     }
 
