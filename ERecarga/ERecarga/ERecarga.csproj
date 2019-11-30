@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="DAL\Region.cs" />
+    <Compile Include="DAL\Station.cs" />
     <Compile Include="DAL\TimeBreak.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,6 +207,10 @@
     <Compile Include="Migrations\201911300102265_addTimeBreak.cs" />
     <Compile Include="Migrations\201911300102265_addTimeBreak.Designer.cs">
       <DependentUpon>201911300102265_addTimeBreak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911300146184_Stations.cs" />
+    <Compile Include="Migrations\201911300146184_Stations.Designer.cs">
+      <DependentUpon>201911300146184_Stations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -311,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911300102265_addTimeBreak.resx">
       <DependentUpon>201911300102265_addTimeBreak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911300146184_Stations.resx">
+      <DependentUpon>201911300146184_Stations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
