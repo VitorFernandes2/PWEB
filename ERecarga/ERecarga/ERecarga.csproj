@@ -234,6 +234,14 @@
     <Compile Include="Migrations\201911301142541_FKRegionIdStation.Designer.cs">
       <DependentUpon>201911301142541_FKRegionIdStation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911301157214_CreateFillStation.cs" />
+    <Compile Include="Migrations\201911301157214_CreateFillStation.Designer.cs">
+      <DependentUpon>201911301157214_CreateFillStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911301203022_UpdateFillStation.cs" />
+    <Compile Include="Migrations\201911301203022_UpdateFillStation.Designer.cs">
+      <DependentUpon>201911301203022_UpdateFillStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -357,6 +365,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911301142541_FKRegionIdStation.resx">
       <DependentUpon>201911301142541_FKRegionIdStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911301157214_CreateFillStation.resx">
+      <DependentUpon>201911301157214_CreateFillStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911301203022_UpdateFillStation.resx">
+      <DependentUpon>201911301203022_UpdateFillStation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
