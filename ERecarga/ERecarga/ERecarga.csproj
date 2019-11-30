@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="DAL\FillStation.cs" />
     <Compile Include="DAL\Promotion.cs" />
     <Compile Include="DAL\Region.cs" />
     <Compile Include="DAL\Station.cs" />
@@ -224,6 +225,14 @@
     <Compile Include="Migrations\201911300334137_UpdatePromotion.cs" />
     <Compile Include="Migrations\201911300334137_UpdatePromotion.Designer.cs">
       <DependentUpon>201911300334137_UpdatePromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911301133306_FKOwnerIdStation.cs" />
+    <Compile Include="Migrations\201911301133306_FKOwnerIdStation.Designer.cs">
+      <DependentUpon>201911301133306_FKOwnerIdStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911301142541_FKRegionIdStation.cs" />
+    <Compile Include="Migrations\201911301142541_FKRegionIdStation.Designer.cs">
+      <DependentUpon>201911301142541_FKRegionIdStation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -342,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911300334137_UpdatePromotion.resx">
       <DependentUpon>201911300334137_UpdatePromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911301133306_FKOwnerIdStation.resx">
+      <DependentUpon>201911301133306_FKOwnerIdStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911301142541_FKRegionIdStation.resx">
+      <DependentUpon>201911301142541_FKRegionIdStation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
