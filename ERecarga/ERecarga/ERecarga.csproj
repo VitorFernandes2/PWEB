@@ -173,8 +173,10 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="DAL\FillStation.cs" />
+    <Compile Include="DAL\FillStationTimeBreak.cs" />
     <Compile Include="DAL\Promotion.cs" />
     <Compile Include="DAL\Region.cs" />
+    <Compile Include="DAL\Reservation.cs" />
     <Compile Include="DAL\Station.cs" />
     <Compile Include="DAL\TimeBreak.cs" />
     <Compile Include="Global.asax.cs">
@@ -241,6 +243,14 @@
     <Compile Include="Migrations\201911301203022_UpdateFillStation.cs" />
     <Compile Include="Migrations\201911301203022_UpdateFillStation.Designer.cs">
       <DependentUpon>201911301203022_UpdateFillStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911301208426_FillStationTimeBreak.cs" />
+    <Compile Include="Migrations\201911301208426_FillStationTimeBreak.Designer.cs">
+      <DependentUpon>201911301208426_FillStationTimeBreak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911301232186_CreateReservation.cs" />
+    <Compile Include="Migrations\201911301232186_CreateReservation.Designer.cs">
+      <DependentUpon>201911301232186_CreateReservation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -371,6 +381,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911301203022_UpdateFillStation.resx">
       <DependentUpon>201911301203022_UpdateFillStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911301208426_FillStationTimeBreak.resx">
+      <DependentUpon>201911301208426_FillStationTimeBreak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911301232186_CreateReservation.resx">
+      <DependentUpon>201911301232186_CreateReservation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
