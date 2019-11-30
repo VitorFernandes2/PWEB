@@ -10,7 +10,7 @@ namespace ERecarga.DAL
     {
 
         public int Id { get; set; }
-        public int SupplyStationId { get; set; }
+        public FillStation FillStation { get; set; }
         public double Price { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]

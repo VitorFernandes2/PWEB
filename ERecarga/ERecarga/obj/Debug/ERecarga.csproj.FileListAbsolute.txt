@@ -234,3 +234,5 @@ C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERe
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdateFillStation.resources
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.FillStationTimeBreak.resources
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.CreateReservation.resources
+C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotionFk.resources
+C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotionFk2.resources
