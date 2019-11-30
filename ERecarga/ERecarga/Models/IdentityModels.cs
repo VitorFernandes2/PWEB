@@ -37,7 +37,10 @@ namespace ERecarga.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            //Create Table Mappings
             modelBuilder.Configurations.Add(new RegionMap());
+        
         }
     }
 

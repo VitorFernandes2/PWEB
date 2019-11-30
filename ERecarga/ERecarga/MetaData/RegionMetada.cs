@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ERecarga.MetaData
+namespace ERecarga.DAL
 {
 
     [MetadataType(typeof(RegionMetada))]
@@ -15,7 +15,7 @@ namespace ERecarga.MetaData
 
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "Insira o nome da região")]
-        [StringLength(126, MinimumLength = 1,
+        [StringLength(126, MinimumLength = 2,
             ErrorMessage = "O {0} deve de ter entre 1 a 126 caracteres")]
         public string Name { get; set; }
 
