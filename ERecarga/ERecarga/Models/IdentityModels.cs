@@ -33,6 +33,7 @@ namespace ERecarga.Models
         }
 
         public virtual DbSet<Region> Regions { get; set; }
+        public virtual DbSet<TimeBreak> TimeBreaks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
