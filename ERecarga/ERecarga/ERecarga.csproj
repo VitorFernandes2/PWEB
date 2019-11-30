@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="DAL\Promotion.cs" />
     <Compile Include="DAL\Region.cs" />
     <Compile Include="DAL\Station.cs" />
     <Compile Include="DAL\TimeBreak.cs" />
@@ -211,6 +212,18 @@
     <Compile Include="Migrations\201911300146184_Stations.cs" />
     <Compile Include="Migrations\201911300146184_Stations.Designer.cs">
       <DependentUpon>201911300146184_Stations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911300322427_StationUpdate.cs" />
+    <Compile Include="Migrations\201911300322427_StationUpdate.Designer.cs">
+      <DependentUpon>201911300322427_StationUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911300330306_CreatePromotion.cs" />
+    <Compile Include="Migrations\201911300330306_CreatePromotion.Designer.cs">
+      <DependentUpon>201911300330306_CreatePromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911300334137_UpdatePromotion.cs" />
+    <Compile Include="Migrations\201911300334137_UpdatePromotion.Designer.cs">
+      <DependentUpon>201911300334137_UpdatePromotion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -319,6 +332,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911300146184_Stations.resx">
       <DependentUpon>201911300146184_Stations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911300322427_StationUpdate.resx">
+      <DependentUpon>201911300322427_StationUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911300330306_CreatePromotion.resx">
+      <DependentUpon>201911300330306_CreatePromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911300334137_UpdatePromotion.resx">
+      <DependentUpon>201911300334137_UpdatePromotion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

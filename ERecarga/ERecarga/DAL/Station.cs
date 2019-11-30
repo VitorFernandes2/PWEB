@@ -10,10 +10,10 @@ namespace ERecarga.DAL
     {
 
         public int Id { get; set; }
+        public string OwnerId { get; set; }
         public int RegionId { get; set; }
         public int DiscountId { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
         [Required]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]

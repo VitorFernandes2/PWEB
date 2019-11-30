@@ -224,3 +224,7 @@ C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERec
 C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.dll
 C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.pdb
 C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.Stations.resources
+C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.Stations.resources
+C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.StationUpdate.resources
+C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.CreatePromotion.resources
+C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotion.resources
