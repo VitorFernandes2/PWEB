@@ -13,11 +13,11 @@ namespace ERecarga.ViewModels
     {
 
         [Required]
-        public string Owner { get; set; }
+        public string OwnerId { get; set; }
         public SelectList Owners;
 
         [Required]
-        public int Region { get; set; }
+        public int RegionId { get; set; }
         public SelectList Regions;
 
         [Required]

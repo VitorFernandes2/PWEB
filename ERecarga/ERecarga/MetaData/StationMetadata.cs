@@ -15,7 +15,7 @@ namespace ERecarga.DAL
 
         [Required(ErrorMessage = "Insira a região!")]
         [Display(Name = "Região")]
-        public Region Region { get; set; }
+        public int RegionId { get; set; }
 
         [Required(ErrorMessage = "Insira o nome da estação!")]
         [Display(Name = "Nome da estação")]

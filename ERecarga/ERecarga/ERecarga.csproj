@@ -278,6 +278,22 @@
     <Compile Include="Migrations\201912011656044_changeState.Designer.cs">
       <DependentUpon>201912011656044_changeState.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912011926511_newFKtoStation.cs" />
+    <Compile Include="Migrations\201912011926511_newFKtoStation.Designer.cs">
+      <DependentUpon>201912011926511_newFKtoStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912011935219_newFKtoStation2.cs" />
+    <Compile Include="Migrations\201912011935219_newFKtoStation2.Designer.cs">
+      <DependentUpon>201912011935219_newFKtoStation2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912012007216_newFKtoStation3.cs" />
+    <Compile Include="Migrations\201912012007216_newFKtoStation3.Designer.cs">
+      <DependentUpon>201912012007216_newFKtoStation3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912012020165_newFKtoStation5.cs" />
+    <Compile Include="Migrations\201912012020165_newFKtoStation5.Designer.cs">
+      <DependentUpon>201912012020165_newFKtoStation5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -439,6 +455,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912011656044_changeState.resx">
       <DependentUpon>201912011656044_changeState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912011926511_newFKtoStation.resx">
+      <DependentUpon>201912011926511_newFKtoStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912011935219_newFKtoStation2.resx">
+      <DependentUpon>201912011935219_newFKtoStation2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912012007216_newFKtoStation3.resx">
+      <DependentUpon>201912012007216_newFKtoStation3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912012020165_newFKtoStation5.resx">
+      <DependentUpon>201912012020165_newFKtoStation5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

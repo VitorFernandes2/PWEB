@@ -52,13 +52,17 @@ namespace ERecarga.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create(StationViewModel station)
+        public ActionResult Create(Station station)
         {
 
-            //db.Stations.Add(station);
-            //db.SaveChanges();
-            //return RedirectToAction("Index");
-            
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+
+            if (ModelState.IsValid)
+            {
+                db.Stations.Add(station);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
             return View(new StationViewModel(db));
         }

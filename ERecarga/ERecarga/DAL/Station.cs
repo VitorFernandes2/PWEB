@@ -12,9 +12,12 @@ namespace ERecarga.DAL
     {
 
         public int Id { get; set; }
-        [Required]
-        public ApplicationUser Owner { get; set; }
-        public Region Region { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string OwnerId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey("Region")]
+        public int RegionId { get; set; }
+        public virtual Region Region { get; set; }
         public string Name { get; set; }
         [Required]
         [DataType(DataType.Time)]
