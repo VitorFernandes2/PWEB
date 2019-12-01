@@ -272,12 +272,17 @@
     <Compile Include="Migrations\201912011617065_StationChangeRequiredOwner.Designer.cs">
       <DependentUpon>201912011617065_StationChangeRequiredOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912011656044_changeState.cs" />
+    <Compile Include="Migrations\201912011656044_changeState.Designer.cs">
+      <DependentUpon>201912011656044_changeState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\StationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -429,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912011617065_StationChangeRequiredOwner.resx">
       <DependentUpon>201912011617065_StationChangeRequiredOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912011656044_changeState.resx">
+      <DependentUpon>201912011656044_changeState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
