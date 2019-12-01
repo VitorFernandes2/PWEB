@@ -16,12 +16,14 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: TimeBreak
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.TimeBreaks.ToList());
         }
 
         // GET: TimeBreak/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: TimeBreak/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +50,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "TimeBreakId,Begin,End")] TimeBreak timeBreak)
         {
             if (ModelState.IsValid)
@@ -60,6 +64,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: TimeBreak/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +84,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "TimeBreakId,Begin,End")] TimeBreak timeBreak)
         {
             if (ModelState.IsValid)
@@ -91,6 +97,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: TimeBreak/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +115,7 @@ namespace ERecarga.Controllers
         // POST: TimeBreak/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             TimeBreak timeBreak = db.TimeBreaks.Find(id);

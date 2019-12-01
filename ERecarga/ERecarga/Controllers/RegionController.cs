@@ -16,12 +16,14 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Region
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Regions.ToList());
         }
 
         // GET: Region/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Region/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +50,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "RegionId,Name")] Region region)
         {
             if (ModelState.IsValid)
@@ -60,6 +64,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Region/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +84,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "RegionId,Name")] Region region)
         {
             if (ModelState.IsValid)
@@ -91,6 +97,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Region/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +115,7 @@ namespace ERecarga.Controllers
         // POST: Region/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Region region = db.Regions.Find(id);

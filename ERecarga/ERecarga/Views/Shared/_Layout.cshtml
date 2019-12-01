@@ -23,9 +23,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    
-                    <li>@Html.ActionLink("Regiões", "Index", "Region")</li>
-                    
+
+                    @if (User.IsInRole("Admin"))
+                    {
+
+                        <li>@Html.ActionLink("Regiões", "Index", "Region")</li>
+                        <li>@Html.ActionLink("Intervalos de Tempo", "Index", "TimeBreak")</li>
+
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
