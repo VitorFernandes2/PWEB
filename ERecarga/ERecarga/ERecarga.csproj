@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\TimeBreakController.cs" />
     <Compile Include="DAL\FillStation.cs" />
     <Compile Include="DAL\FillStationTimeBreak.cs" />
     <Compile Include="DAL\Promotion.cs" />
@@ -327,6 +328,11 @@
     <Content Include="Views\Region\Details.cshtml" />
     <Content Include="Views\Region\Edit.cshtml" />
     <Content Include="Views\Region\Index.cshtml" />
+    <Content Include="Views\TimeBreak\Create.cshtml" />
+    <Content Include="Views\TimeBreak\Delete.cshtml" />
+    <Content Include="Views\TimeBreak\Details.cshtml" />
+    <Content Include="Views\TimeBreak\Edit.cshtml" />
+    <Content Include="Views\TimeBreak\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

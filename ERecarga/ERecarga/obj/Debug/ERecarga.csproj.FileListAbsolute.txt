@@ -236,3 +236,14 @@ C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERe
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.CreateReservation.resources
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotionFk.resources
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotionFk2.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.StationUpdate.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.CreatePromotion.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotion.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.FKOwnerIdStation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.FKRegionIdStation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.CreateFillStation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdateFillStation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.FillStationTimeBreak.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.CreateReservation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotionFk.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.UpdatePromotionFk2.resources
