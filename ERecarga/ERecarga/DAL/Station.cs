@@ -8,13 +8,13 @@ using System.Web;
 
 namespace ERecarga.DAL
 {
-    public class Station
+    public partial class Station
     {
 
         public int Id { get; set; }
+        [Required]
         public ApplicationUser Owner { get; set; }
         public Region Region { get; set; }
-        public int DiscountId { get; set; }
         public string Name { get; set; }
         [Required]
         [DataType(DataType.Time)]

@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Controllers\TimeBreakController.cs" />
     <Compile Include="DAL\FillStation.cs" />
     <Compile Include="DAL\FillStationTimeBreak.cs" />
@@ -185,6 +186,8 @@
     </Compile>
     <Compile Include="Mappings\RegionMap.cs" />
     <Compile Include="MetaData\RegionMetada.cs" />
+    <Compile Include="MetaData\StationMetadata.cs" />
+    <Compile Include="MetaData\TimeBreakMetadata.cs" />
     <Compile Include="Migrations\201911272254269_InitialCreate.cs" />
     <Compile Include="Migrations\201911272254269_InitialCreate.Designer.cs">
       <DependentUpon>201911272254269_InitialCreate.cs</DependentUpon>
@@ -261,6 +264,14 @@
     <Compile Include="Migrations\201911301239040_UpdatePromotionFk2.Designer.cs">
       <DependentUpon>201911301239040_UpdatePromotionFk2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912011613548_StationChangePromotion.cs" />
+    <Compile Include="Migrations\201912011613548_StationChangePromotion.Designer.cs">
+      <DependentUpon>201912011613548_StationChangePromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912011617065_StationChangeRequiredOwner.cs" />
+    <Compile Include="Migrations\201912011617065_StationChangeRequiredOwner.Designer.cs">
+      <DependentUpon>201912011617065_StationChangeRequiredOwner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -333,6 +344,11 @@
     <Content Include="Views\TimeBreak\Details.cshtml" />
     <Content Include="Views\TimeBreak\Edit.cshtml" />
     <Content Include="Views\TimeBreak\Index.cshtml" />
+    <Content Include="Views\Station\Create.cshtml" />
+    <Content Include="Views\Station\Delete.cshtml" />
+    <Content Include="Views\Station\Details.cshtml" />
+    <Content Include="Views\Station\Edit.cshtml" />
+    <Content Include="Views\Station\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,6 +423,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911301239040_UpdatePromotionFk2.resx">
       <DependentUpon>201911301239040_UpdatePromotionFk2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912011613548_StationChangePromotion.resx">
+      <DependentUpon>201912011613548_StationChangePromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912011617065_StationChangeRequiredOwner.resx">
+      <DependentUpon>201912011617065_StationChangeRequiredOwner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
