@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.ViewModels;
 
 namespace ERecarga.Controllers
 {
@@ -42,7 +43,7 @@ namespace ERecarga.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            return View();
+            return View(new StationViewModel(db));
         }
 
         // POST: Station/Create
@@ -51,16 +52,15 @@ namespace ERecarga.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "Id,Name,WorkhourBegin,WorkhourEnd")] Station station)
+        public ActionResult Create(StationViewModel station)
         {
-            if (ModelState.IsValid)
-            {
-                db.Stations.Add(station);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(station);
+            //db.Stations.Add(station);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
+            
+
+            return View(new StationViewModel(db));
         }
 
         // GET: Station/Edit/5
