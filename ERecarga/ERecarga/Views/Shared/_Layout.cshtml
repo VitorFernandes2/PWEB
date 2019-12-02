@@ -34,6 +34,11 @@
 
                     }
 
+                    @if (User.IsInRole("Owner"))
+                    {
+                        <li>@Html.ActionLink("Promoções", "Index", "Promotions")</li>
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

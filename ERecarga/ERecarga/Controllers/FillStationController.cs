@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.ViewModels;
 
 namespace ERecarga.Controllers
 {
@@ -16,6 +17,7 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: FillStation
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var fillStations = db.FillStations.Include(f => f.Station);
@@ -23,6 +25,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStation/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,10 +41,10 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStation/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            ViewBag.StationId = new SelectList(db.Stations, "Id", "OwnerId");
-            return View();
+            return View(new FillStationViewModel(db));
         }
 
         // POST: FillStation/Create
@@ -49,10 +52,12 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Price,Type,Open,StationId")] FillStation fillStation)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create(FillStation fillStation)
         {
             if (ModelState.IsValid)
             {
+                fillStation.Open = true;
                 db.FillStations.Add(fillStation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -63,6 +68,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStation/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,6 +89,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,Name,Price,Type,Open,StationId")] FillStation fillStation)
         {
             if (ModelState.IsValid)
@@ -96,6 +103,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStation/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,6 +121,7 @@ namespace ERecarga.Controllers
         // POST: FillStation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             FillStation fillStation = db.FillStations.Find(id);
