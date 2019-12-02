@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -13,7 +14,9 @@ namespace ERecarga.DAL
         public double Price { get; set; }
         public string Type { get; set; }
         public bool Open { get; set; }
-        public Station Station { get; set; }
+        [ForeignKey("Station")]
+        public int StationId { get; set; }
+        public virtual Station Station { get; set; }
 
     }
 }

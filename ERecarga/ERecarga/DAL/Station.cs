@@ -21,11 +21,9 @@ namespace ERecarga.DAL
         public string Name { get; set; }
         [Required]
         [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime WorkhourBegin { get; set; }
         [Required]
         [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime WorkhourEnd { get; set; }
     }
 }

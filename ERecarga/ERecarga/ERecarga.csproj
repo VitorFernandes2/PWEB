@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FillStationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
@@ -294,6 +295,10 @@
     <Compile Include="Migrations\201912012020165_newFKtoStation5.Designer.cs">
       <DependentUpon>201912012020165_newFKtoStation5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912021057012_changeFkOfFillStation.cs" />
+    <Compile Include="Migrations\201912021057012_changeFkOfFillStation.Designer.cs">
+      <DependentUpon>201912021057012_changeFkOfFillStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -372,6 +377,11 @@
     <Content Include="Views\Station\Details.cshtml" />
     <Content Include="Views\Station\Edit.cshtml" />
     <Content Include="Views\Station\Index.cshtml" />
+    <Content Include="Views\FillStation\Create.cshtml" />
+    <Content Include="Views\FillStation\Delete.cshtml" />
+    <Content Include="Views\FillStation\Details.cshtml" />
+    <Content Include="Views\FillStation\Edit.cshtml" />
+    <Content Include="Views\FillStation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -467,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912012020165_newFKtoStation5.resx">
       <DependentUpon>201912012020165_newFKtoStation5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021057012_changeFkOfFillStation.resx">
+      <DependentUpon>201912021057012_changeFkOfFillStation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
