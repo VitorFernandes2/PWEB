@@ -12,11 +12,9 @@ namespace ERecarga.DAL
         public int TimeBreakId { get; set; }
         [Required]
         [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime Begin { get; set; }
         [Required]
         [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime End { get; set; }
 
     }
