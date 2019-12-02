@@ -256,3 +256,12 @@ C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERe
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.csprojAssemblyReference.cache
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.changeFkOfFillStation.resources
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.foreignKeysToAll.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.StationChangePromotion.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.StationChangeRequiredOwner.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.changeState.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.newFKtoStation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.newFKtoStation2.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.newFKtoStation3.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.newFKtoStation5.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.changeFkOfFillStation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.foreignKeysToAll.resources

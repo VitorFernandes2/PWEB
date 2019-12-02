@@ -174,6 +174,7 @@
     <Compile Include="Controllers\FillStationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PromotionsController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Controllers\TimeBreakController.cs" />
@@ -386,6 +387,11 @@
     <Content Include="Views\FillStation\Details.cshtml" />
     <Content Include="Views\FillStation\Edit.cshtml" />
     <Content Include="Views\FillStation\Index.cshtml" />
+    <Content Include="Views\Promotions\Create.cshtml" />
+    <Content Include="Views\Promotions\Delete.cshtml" />
+    <Content Include="Views\Promotions\Details.cshtml" />
+    <Content Include="Views\Promotions\Edit.cshtml" />
+    <Content Include="Views\Promotions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
