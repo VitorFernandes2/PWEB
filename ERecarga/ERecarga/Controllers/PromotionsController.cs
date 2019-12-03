@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.ViewModels;
 
 namespace ERecarga.Controllers
 {
@@ -40,8 +41,8 @@ namespace ERecarga.Controllers
         // GET: Promotions/Create
         public ActionResult Create()
         {
-            ViewBag.FillStationId = new SelectList(db.FillStations, "Id", "Name");
-            return View();
+            //ViewBag.FillStationId = new SelectList(db.FillStations, "Id", "Name");
+            return View(new PromotionViewModel(db));
         }
 
         // POST: Promotions/Create

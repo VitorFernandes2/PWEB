@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ListaRoles.cs" />
+    <Compile Include="App_Code\ListFillStation.cs" />
     <Compile Include="App_Code\ListOwners.cs" />
     <Compile Include="App_Code\ListRegions.cs" />
     <Compile Include="App_Code\ListStations.cs" />
@@ -313,6 +314,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FillStationViewModel.cs" />
+    <Compile Include="ViewModels\PromotionViewModel.cs" />
     <Compile Include="ViewModels\StationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
