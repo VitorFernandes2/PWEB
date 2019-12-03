@@ -21,13 +21,5 @@ namespace ERecarga.DAL
         [Display(Name = "Nome da estação")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Insira a Hota de inicio de trabalhos!")]
-        [Display(Name = "Hora de inicio de trabalhos")]
-        public DateTime WorkhourBegin { get; set; }
-
-        [Required(ErrorMessage = "Insira a hora de fim de trabalhos!")]
-        [Display(Name = "Hora de fim de trabalhos")]
-        public DateTime WorkhourEnd { get; set; }
-
     }
 }

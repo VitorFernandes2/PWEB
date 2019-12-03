@@ -168,6 +168,7 @@
     <Compile Include="App_Code\ListRegions.cs" />
     <Compile Include="App_Code\ListRegionsById.cs" />
     <Compile Include="App_Code\ListStationByUserId.cs" />
+    <Compile Include="App_Code\ListStationByUserIdEdit.cs" />
     <Compile Include="App_Code\ListStations.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -308,6 +309,10 @@
     <Compile Include="Migrations\201912021436402_foreignKeysToAll.cs" />
     <Compile Include="Migrations\201912021436402_foreignKeysToAll.Designer.cs">
       <DependentUpon>201912021436402_foreignKeysToAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912032028036_removeTimeFromStation.cs" />
+    <Compile Include="Migrations\201912032028036_removeTimeFromStation.Designer.cs">
+      <DependentUpon>201912032028036_removeTimeFromStation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -505,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912021436402_foreignKeysToAll.resx">
       <DependentUpon>201912021436402_foreignKeysToAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912032028036_removeTimeFromStation.resx">
+      <DependentUpon>201912032028036_removeTimeFromStation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

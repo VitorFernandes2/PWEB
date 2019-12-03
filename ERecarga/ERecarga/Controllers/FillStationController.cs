@@ -80,7 +80,8 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StationId = new SelectList(db.Stations, "Id", "OwnerId", fillStation.StationId);
+            var userId = User.Identity.GetUserId();
+            ViewBag.StationIdList = ListStationByUserIdEdit.createListItems(db, userId, fillStation.StationId);
             return View(fillStation);
         }
 

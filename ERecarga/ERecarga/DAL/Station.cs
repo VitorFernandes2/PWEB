@@ -19,11 +19,6 @@ namespace ERecarga.DAL
         public int RegionId { get; set; }
         public virtual Region Region { get; set; }
         public string Name { get; set; }
-        [Required]
-        [DataType(DataType.Time)]
-        public DateTime WorkhourBegin { get; set; }
-        [Required]
-        [DataType(DataType.Time)]
-        public DateTime WorkhourEnd { get; set; }
+
     }
 }

@@ -10,6 +10,7 @@
     <h4>Station</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -19,19 +20,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.WorkhourBegin)
+            @Html.DisplayNameFor(model => model.Region.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.WorkhourBegin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkhourEnd)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WorkhourEnd)
+            @Html.DisplayFor(model => model.Region.Name)
         </dd>
 
     </dl>
