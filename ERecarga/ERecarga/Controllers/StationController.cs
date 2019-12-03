@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
 using ERecarga.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace ERecarga.Controllers
 {
@@ -17,14 +18,14 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Station
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         public ActionResult Index()
         {
             return View(db.Stations.ToList());
         }
 
         // GET: Station/Details/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,7 +41,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Station/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         public ActionResult Create()
         {
             return View(new StationViewModel(db));
@@ -51,11 +52,12 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         public ActionResult Create(Station station)
         {
 
             var errors = ModelState.Values.SelectMany(v => v.Errors);
+            station.OwnerId = User.Identity.GetUserId();
 
             if (ModelState.IsValid)
             {
@@ -68,7 +70,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Station/Edit/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -88,9 +90,12 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "Id,Name,WorkhourBegin,WorkhourEnd")] Station station)
+        [Authorize(Roles = "Owner")]
+        public ActionResult Edit(Station station)
         {
+
+            station.OwnerId = User.Identity.GetUserId();
+
             if (ModelState.IsValid)
             {
                 db.Entry(station).State = EntityState.Modified;
@@ -101,7 +106,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Station/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -119,7 +124,7 @@ namespace ERecarga.Controllers
         // POST: Station/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Owner")]
         public ActionResult DeleteConfirmed(int id)
         {
             Station station = db.Stations.Find(id);

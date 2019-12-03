@@ -29,13 +29,13 @@
 
                         <li>@Html.ActionLink("Regiões", "Index", "Region")</li>
                         <li>@Html.ActionLink("Intervalos de Tempo", "Index", "TimeBreak")</li>
-                        <li>@Html.ActionLink("Estações", "Index", "Station")</li>
                         <li>@Html.ActionLink("Postos", "Index", "FillStation")</li>
 
                     }
 
                     @if (User.IsInRole("Owner"))
                     {
+                        <li>@Html.ActionLink("Estações", "Index", "Station")</li>
                         <li>@Html.ActionLink("Promoções", "Index", "Promotions")</li>
                     }
 

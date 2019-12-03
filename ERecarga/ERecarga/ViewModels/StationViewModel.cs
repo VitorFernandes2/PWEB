@@ -14,7 +14,6 @@ namespace ERecarga.ViewModels
 
         [Required]
         public string OwnerId { get; set; }
-        public SelectList Owners;
 
         [Required]
         public int RegionId { get; set; }
@@ -35,7 +34,6 @@ namespace ERecarga.ViewModels
 
         public StationViewModel(ApplicationDbContext db)
         {
-            Owners = ListOwners.createListItems(db);
             Regions = ListRegions.createListItems(db);
         }
 
