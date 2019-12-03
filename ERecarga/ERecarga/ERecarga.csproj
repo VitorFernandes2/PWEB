@@ -166,6 +166,8 @@
     <Compile Include="App_Code\ListFillStation.cs" />
     <Compile Include="App_Code\ListOwners.cs" />
     <Compile Include="App_Code\ListRegions.cs" />
+    <Compile Include="App_Code\ListRegionsById.cs" />
+    <Compile Include="App_Code\ListStationByUserId.cs" />
     <Compile Include="App_Code\ListStations.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

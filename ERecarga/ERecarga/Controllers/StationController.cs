@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ERecarga.App_Code;
 using ERecarga.DAL;
 using ERecarga.Models;
 using ERecarga.ViewModels;
@@ -82,6 +83,7 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ListRegions = ListRegionsById.createListItems(db, station.RegionId);
             return View(station);
         }
 
