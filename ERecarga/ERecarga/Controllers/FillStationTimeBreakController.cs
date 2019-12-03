@@ -6,8 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ERecarga.App_Code;
 using ERecarga.DAL;
 using ERecarga.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ERecarga.Controllers
 {
@@ -40,8 +42,9 @@ namespace ERecarga.Controllers
         // GET: FillStationTimeBreak/Create
         public ActionResult Create()
         {
-            ViewBag.FillStationId = new SelectList(db.FillStations, "Id", "Name");
-            ViewBag.TimeBreakId = new SelectList(db.TimeBreaks, "TimeBreakId", "TimeBreakId");
+            var user = User.Identity.GetUserId();
+            ViewBag.FillStationList = ListFillStationsByUserId.createListItems(db, user);
+            ViewBag.TimeBreakList = ListTimeBreakFill.createListItems(db);
             return View();
         }
 
@@ -76,8 +79,11 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FillStationId = new SelectList(db.FillStations, "Id", "Name", fillStationTimeBreak.FillStationId);
-            ViewBag.TimeBreakId = new SelectList(db.TimeBreaks, "TimeBreakId", "TimeBreakId", fillStationTimeBreak.TimeBreakId);
+            var user = User.Identity.GetUserId();
+            int fillstation = db.FillStationTimeBreaks.Find(id).FillStationId;
+            int timebreak = db.FillStationTimeBreaks.Find(id).TimeBreakId;
+            ViewBag.FillStationId = ListFillStationsByUserIdEdit.createListItems(db, user, fillstation);
+            ViewBag.TimeBreakId = ListTimeBreakFillEdit.createListItems(db, timebreak);
             return View(fillStationTimeBreak);
         }
 
@@ -111,6 +117,7 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(fillStationTimeBreak);
         }
 
