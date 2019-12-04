@@ -186,6 +186,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Controllers\TimeBreakController.cs" />
     <Compile Include="DAL\FillStation.cs" />
@@ -413,6 +414,9 @@
     <Content Include="Views\FillStationTimeBreak\Details.cshtml" />
     <Content Include="Views\FillStationTimeBreak\Edit.cshtml" />
     <Content Include="Views\FillStationTimeBreak\Index.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
