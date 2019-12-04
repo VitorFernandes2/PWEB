@@ -319,6 +319,10 @@
     <Compile Include="Migrations\201912032028036_removeTimeFromStation.Designer.cs">
       <DependentUpon>201912032028036_removeTimeFromStation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912041803543_removeStateFromReservation.cs" />
+    <Compile Include="Migrations\201912041803543_removeStateFromReservation.Designer.cs">
+      <DependentUpon>201912041803543_removeStateFromReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -327,6 +331,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FillStationViewModel.cs" />
     <Compile Include="ViewModels\PromotionViewModel.cs" />
+    <Compile Include="ViewModels\ReservationViewModel.cs" />
     <Compile Include="ViewModels\StationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -521,6 +526,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912032028036_removeTimeFromStation.resx">
       <DependentUpon>201912032028036_removeTimeFromStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912041803543_removeStateFromReservation.resx">
+      <DependentUpon>201912041803543_removeStateFromReservation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

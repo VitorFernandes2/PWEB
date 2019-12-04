@@ -38,7 +38,7 @@ namespace ERecarga.Controllers
         // GET: Reservations/Create
         public ActionResult Create()
         {
-            return View();
+            return View(db.FillStationTimeBreaks.ToList());
         }
 
         // POST: Reservations/Create

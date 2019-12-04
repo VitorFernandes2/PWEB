@@ -21,7 +21,6 @@ namespace ERecarga.DAL
         [DataType(DataType.Date)]
         public DateTime Day { get; set; }
         public double Price { get; set; }
-        public bool State { get; set; }
 
     }
 }
