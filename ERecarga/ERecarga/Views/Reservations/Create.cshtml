@@ -39,6 +39,7 @@
 
                 <td>
                     @Html.DisplayFor(modelItem => item.FillStation.Station.Region.Name)
+                    <input type="hidden" name="FillStationId" value="@(item.FillStationId)"/>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FillStation.Station.Name)
@@ -53,7 +54,7 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <input type="date" name="submitdate" min=@DateTime.Now.Date.AddDays(1) class = "form-control">
+                        <input type="date" name="submitdate" min=@DateTime.Today.AddDays(1) class = "form-control">
                     </div>
                 </td>
                 <td>

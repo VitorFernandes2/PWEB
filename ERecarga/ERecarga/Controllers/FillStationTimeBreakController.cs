@@ -53,7 +53,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FillStationId,TimeBreakId")] FillStationTimeBreak fillStationTimeBreak)
+        public ActionResult Create(FillStationTimeBreak fillStationTimeBreak)
         {
             if (ModelState.IsValid)
             {
@@ -61,9 +61,9 @@ namespace ERecarga.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.FillStationId = new SelectList(db.FillStations, "Id", "Name", fillStationTimeBreak.FillStationId);
-            ViewBag.TimeBreakId = new SelectList(db.TimeBreaks, "TimeBreakId", "TimeBreakId", fillStationTimeBreak.TimeBreakId);
+            var user = User.Identity.GetUserId();
+            ViewBag.FillStationList = ListFillStationsByUserId.createListItems(db, user);
+            ViewBag.TimeBreakList = ListTimeBreakFill.createListItems(db); 
             return View(fillStationTimeBreak);
         }
 

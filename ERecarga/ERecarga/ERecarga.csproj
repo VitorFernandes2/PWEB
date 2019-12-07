@@ -201,6 +201,7 @@
     </Compile>
     <Compile Include="Mappings\RegionMap.cs" />
     <Compile Include="MetaData\RegionMetada.cs" />
+    <Compile Include="MetaData\ReservationMetadata.cs" />
     <Compile Include="MetaData\StationMetadata.cs" />
     <Compile Include="MetaData\TimeBreakMetadata.cs" />
     <Compile Include="Migrations\201911272254269_InitialCreate.cs" />

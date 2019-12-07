@@ -43,18 +43,11 @@ namespace ERecarga.Controllers
 
         // POST: Reservations/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(int? FillStationId)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            
+            return View(db.FillStationTimeBreaks.ToList());
+            
         }
 
         // GET: Reservations/Edit/5
