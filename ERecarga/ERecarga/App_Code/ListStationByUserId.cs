@@ -28,5 +28,21 @@ namespace ERecarga.App_Code
 
         }
 
+        public static SelectList createallListItems(ApplicationDbContext db)
+        {
+
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+
+            foreach (var item in db.Stations.ToList())
+            {
+
+                    selectListItems.Add(new SelectListItem { Text = $"{item.Name}", Value = $"{item.Id}" });
+
+            }
+
+            return new SelectList(selectListItems, "Value", "Text");
+
+        }
+
     }
 }
