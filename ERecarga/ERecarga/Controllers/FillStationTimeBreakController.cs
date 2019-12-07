@@ -43,7 +43,11 @@ namespace ERecarga.Controllers
         public ActionResult Create()
         {
             var user = User.Identity.GetUserId();
-            ViewBag.FillStationList = ListFillStationsByUserId.createListItems(db, user);
+
+            if (User.IsInRole("Admin"))
+                ViewBag.FillStationList = ListFillStationsByUserId.createAllListItems(db);
+            else
+                ViewBag.FillStationList = ListFillStationsByUserId.createListItems(db, user);
             ViewBag.TimeBreakList = ListTimeBreakFill.createListItems(db);
             return View();
         }

@@ -19,14 +19,14 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Station
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Index()
         {
             return View(db.Stations.ToList());
         }
 
         // GET: Station/Details/5
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -42,7 +42,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Station/Create
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Create()
         {
             return View(new StationViewModel(db));
@@ -53,7 +53,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Create(Station station)
         {
 
@@ -71,7 +71,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Station/Edit/5
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,7 +92,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Edit(Station station)
         {
 
@@ -108,7 +108,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Station/Delete/5
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -126,7 +126,7 @@ namespace ERecarga.Controllers
         // POST: Station/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Station station = db.Stations.Find(id);
