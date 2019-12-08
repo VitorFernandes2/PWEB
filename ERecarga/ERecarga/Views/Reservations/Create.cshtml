@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ERecarga.DAL.FillStationTimeBreak>
+﻿@model List<ERecarga.ViewModels.ReservationViewModel>
 
 @{
     ViewBag.Title = "Nova Reserva";
@@ -10,19 +10,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FillStation.Station.Region.Name)
+            @Html.DisplayNameFor(model => model.First().FillStationTimeBreak.FillStation.Station.Region.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FillStation.Station.Name)
+            @Html.DisplayNameFor(model => model.First().FillStationTimeBreak.FillStation.Station.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FillStation.Name)
+            @Html.DisplayNameFor(model => model.First().FillStationTimeBreak.FillStation.Name)
         </th>
         <th>
             Horário
         </th>
         <th>
             Dia de Reserva
+        </th>
+        <th>
+            Preço
         </th>
         <th>
 
@@ -38,24 +41,28 @@
                 @Html.AntiForgeryToken()
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.FillStation.Station.Region.Name)
-                    <input type="hidden" name="FillStationId" value="@(item.FillStationId)"/>
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Station.Region.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FillStation.Station.Name)
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Station.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FillStation.Name)
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TimeBreak.Begin)
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.TimeBreak.Begin)
                     Às
-                    @Html.DisplayFor(modelItem => item.TimeBreak.End)
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.TimeBreak.End)
+                    <input type="hidden" name="TimeBreakId" value="@(item.FillStationTimeBreakId)" />
                 </td>
                 <td>
                     <div class="form-group">
-                        <input type="date" name="submitdate" min=@DateTime.Today.AddDays(1) class = "form-control">
+                        <input type="date" name="submitdate" class="form-control" required>
                     </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price) €
+                    <input type="hidden" name="Price" value="@(item.Price)" />
                 </td>
                 <td>
                     <div class="form-group">
