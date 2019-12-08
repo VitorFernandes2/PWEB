@@ -332,6 +332,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validation\Validate.cs" />
+    <Compile Include="Validation\ValidateFillStation.cs" />
+    <Compile Include="Validation\ValidateFillStationTimeBreak.cs" />
+    <Compile Include="Validation\ValidateRegion.cs" />
+    <Compile Include="Validation\ValidateReservation.cs" />
+    <Compile Include="Validation\ValidateStation.cs" />
+    <Compile Include="Validation\ValidateTimeBreak.cs" />
     <Compile Include="ViewModels\FillStationViewModel.cs" />
     <Compile Include="ViewModels\PromotionViewModel.cs" />
     <Compile Include="ViewModels\ReservationViewModel.cs" />
