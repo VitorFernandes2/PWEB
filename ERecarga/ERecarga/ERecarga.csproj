@@ -334,6 +334,7 @@
     <Compile Include="Validation\Validate.cs" />
     <Compile Include="Validation\ValidateFillStation.cs" />
     <Compile Include="Validation\ValidateFillStationTimeBreak.cs" />
+    <Compile Include="Validation\ValidatePromotion.cs" />
     <Compile Include="Validation\ValidateRegion.cs" />
     <Compile Include="Validation\ValidateReservation.cs" />
     <Compile Include="Validation\ValidateStation.cs" />

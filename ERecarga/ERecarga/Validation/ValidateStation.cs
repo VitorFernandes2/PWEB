@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ERecarga.DAL;
+using ERecarga.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +17,7 @@ namespace ERecarga.Validation
             foreach (var item in db.Stations.ToList())
             {
 
-                if (item.Name == station.Name || item.Id == station.Id)
+                if (item.Name.Equals(station.Name))
                 {
                     return true;
                 }
