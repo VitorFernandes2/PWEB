@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.Validation;
 
 namespace ERecarga.Controllers
 {
@@ -55,9 +56,20 @@ namespace ERecarga.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (ValidateTimeBreak.AlreadyExistsTimeBreak(timeBreak))
+                {
+
+                    ModelState.AddModelError(string.Empty, "O intervalo de tempo já existe na base de dados.");
+
+                    return View(timeBreak);
+
+                }
+
                 db.TimeBreaks.Add(timeBreak);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
             return View(timeBreak);
@@ -89,6 +101,16 @@ namespace ERecarga.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (ValidateTimeBreak.AlreadyExistsTimeBreak(timeBreak))
+                {
+
+                    ModelState.AddModelError(string.Empty, "O intervalo de tempo já existe na base de dados.");
+
+                    return View(timeBreak);
+
+                }
+
                 db.Entry(timeBreak).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ERecarga.App_Code;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.Validation;
 using ERecarga.ViewModels;
 using Microsoft.AspNet.Identity;
 
@@ -62,6 +63,19 @@ namespace ERecarga.Controllers
 
             if (ModelState.IsValid)
             {
+
+                if (ValidateStation.AlreadyExistsStation(station))
+                {
+
+                    ModelState.AddModelError(string.Empty, "A estação já existe na base de dados.");
+
+                    StationViewModel viewModel = new StationViewModel(db);
+                    viewModel.Name = station.Name;
+                    ViewBag.ListRegions = ListRegionsById.createListItems(db, station.RegionId);
+                    return View(viewModel);
+
+                }
+
                 db.Stations.Add(station);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -100,6 +114,17 @@ namespace ERecarga.Controllers
 
             if (ModelState.IsValid)
             {
+
+                if (ValidateStation.AlreadyExistsStation(station))
+                {
+
+                    ModelState.AddModelError(string.Empty, "A estação já existe na base de dados.");
+
+                    ViewBag.ListRegions = ListRegionsById.createListItems(db, station.RegionId);
+                    return View(station);
+
+                }
+
                 db.Entry(station).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
