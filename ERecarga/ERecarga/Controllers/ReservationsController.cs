@@ -17,12 +17,14 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reservations
+        [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Index()
         {
             return View(db.Reservations.ToList());
         }
 
         // GET: Reservations/Details/5
+        [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,6 +40,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Reservations/Create
+        [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Create()
         {
             return View(ListReservationViewModel.createListItems(db));
@@ -45,6 +48,7 @@ namespace ERecarga.Controllers
 
         // POST: Reservations/Create
         [HttpPost]
+        [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Create(double? Price,
             DateTime? submitdate, int? TimeBreakId)
         {
@@ -83,6 +87,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Reservations/Delete/5
+        [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -99,6 +104,7 @@ namespace ERecarga.Controllers
 
         // POST: Reservations/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Delete(int id)
         {
             Reservation reservation = db.Reservations.Find(id);

@@ -18,6 +18,7 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: FillStationTimeBreak
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Index()
         {
             var fillStationTimeBreaks = db.FillStationTimeBreaks.Include(f => f.FillStation).Include(f => f.TimeBreak);
@@ -25,6 +26,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStationTimeBreak/Details/5
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,6 +42,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStationTimeBreak/Create
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Create()
         {
             var user = User.Identity.GetUserId();
@@ -57,6 +60,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Create(FillStationTimeBreak fillStationTimeBreak)
         {
             if (ModelState.IsValid)
@@ -72,6 +76,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStationTimeBreak/Edit/5
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -96,6 +101,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Edit([Bind(Include = "Id,FillStationId,TimeBreakId")] FillStationTimeBreak fillStationTimeBreak)
         {
             if (ModelState.IsValid)
@@ -110,6 +116,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: FillStationTimeBreak/Delete/5
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -128,6 +135,7 @@ namespace ERecarga.Controllers
         // POST: FillStationTimeBreak/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             FillStationTimeBreak fillStationTimeBreak = db.FillStationTimeBreaks.Find(id);

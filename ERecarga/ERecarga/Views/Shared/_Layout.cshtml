@@ -44,7 +44,10 @@
                         <li>@Html.ActionLink("Intervalos por Estação", "Index", "FillStationTimeBreak")</li>
                     }
 
-                    <li>@Html.ActionLink("Reservas", "Index", "Reservations")</li>
+                    @if (User.IsInRole("Owner"))
+                    {
+                        <li>@Html.ActionLink("Reservas", "Index", "Reservations")</li>
+                    }
 
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -17,6 +17,7 @@ namespace ERecarga.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Promotions
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Index()
         {
             var promotions = db.Promotions.Include(p => p.FillStation);
@@ -24,6 +25,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Promotions/Details/5
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,6 +41,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Promotions/Create
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Create()
         {
             //ViewBag.FillStationId = new SelectList(db.FillStations, "Id", "Name");
@@ -50,6 +53,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Create([Bind(Include = "Id,FillStationId,Price,PromotionStart,PromotionEnd")] Promotion promotion)
         {
             if (ModelState.IsValid)
@@ -64,6 +68,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Promotions/Edit/5
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -84,6 +89,7 @@ namespace ERecarga.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Edit([Bind(Include = "Id,FillStationId,Price,PromotionStart,PromotionEnd")] Promotion promotion)
         {
             if (ModelState.IsValid)
@@ -97,6 +103,7 @@ namespace ERecarga.Controllers
         }
 
         // GET: Promotions/Delete/5
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,6 +121,7 @@ namespace ERecarga.Controllers
         // POST: Promotions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner, Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Promotion promotion = db.Promotions.Find(id);
