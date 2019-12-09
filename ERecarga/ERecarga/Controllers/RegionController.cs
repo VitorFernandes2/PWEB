@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.Validation;
 
 namespace ERecarga.Controllers
 {
@@ -55,6 +56,16 @@ namespace ERecarga.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (ValidateRegion.AlreadyExistsRegion(region))
+                {
+
+                    ModelState.AddModelError(string.Empty, "A região já existe na base de dados.");
+
+                    return View(region);
+
+                }
+
                 db.Regions.Add(region);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,6 +100,16 @@ namespace ERecarga.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (ValidateRegion.AlreadyExistsRegion(region))
+                {
+
+                    ModelState.AddModelError(string.Empty, "A região já existe na base de dados.");
+
+                    return View(region);
+
+                }
+
                 db.Entry(region).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
