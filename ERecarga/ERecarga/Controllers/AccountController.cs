@@ -159,6 +159,13 @@ namespace ERecarga.Controllers
 
                     await this.UserManager.AddToRoleAsync(user.Id, model.Role);
 
+                    //this.UserManager.AddToRole(user.Id, model.Role);
+
+                    //IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+                    //authenticationManager.SignOut("ApplicationCookie");
+                    //authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, user);
+                    //SignInManager.SignIn(user, false, false);
+
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

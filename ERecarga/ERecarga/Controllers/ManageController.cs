@@ -63,7 +63,14 @@ namespace ERecarga.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
-            var userId = User.Identity.GetUserId();
+            ViewBag.Userinfo = User.Identity.Name;
+
+            if (User.IsInRole("User")) ViewBag.Role = "User";
+            if (User.IsInRole("Admin")) ViewBag.Role = "Admin";
+            if (User.IsInRole("Owner")) ViewBag.Role = "Owner";
+
+
+        var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
