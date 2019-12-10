@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ERecarga.App_Code;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.Validation;
 using Microsoft.AspNet.Identity;
 
 namespace ERecarga.Controllers
@@ -65,13 +66,34 @@ namespace ERecarga.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (ValidateFillStationTimeBreak.AlreadyExistsFillStationTimeBreak(fillStationTimeBreak))
+                {
+
+                    ModelState.AddModelError(string.Empty, "O posto já contém este intervalo.");
+
+                    var userId = User.Identity.GetUserId();
+
+                    if (User.IsInRole("Admin"))
+                        ViewBag.FillStationList = ListFillStationsByUserId.createAllListItems(db);
+                    else
+                        ViewBag.FillStationList = ListFillStationsByUserId.createListItems(db, userId);
+                    ViewBag.TimeBreakList = ListTimeBreakFill.createListItems(db);
+
+                    return View(fillStationTimeBreak);
+
+                }
+
                 db.FillStationTimeBreaks.Add(fillStationTimeBreak);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             var user = User.Identity.GetUserId();
-            ViewBag.FillStationList = ListFillStationsByUserId.createListItems(db, user);
-            ViewBag.TimeBreakList = ListTimeBreakFill.createListItems(db); 
+            if (User.IsInRole("Admin"))
+                ViewBag.FillStationList = ListFillStationsByUserId.createAllListItems(db);
+            else
+                ViewBag.FillStationList = ListFillStationsByUserId.createListItems(db, user);
+            ViewBag.TimeBreakList = ListTimeBreakFill.createListItems(db);
             return View(fillStationTimeBreak);
         }
 
@@ -106,12 +128,31 @@ namespace ERecarga.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (ValidateFillStationTimeBreak.AlreadyExistsFillStationTimeBreak(fillStationTimeBreak))
+                {
+
+                    ModelState.AddModelError(string.Empty, "O posto já contém este intervalo.");
+
+                    var userId = User.Identity.GetUserId();
+                    int fillstation2 = db.FillStationTimeBreaks.Find(fillStationTimeBreak.Id).FillStationId;
+                    int timebreak2 = db.FillStationTimeBreaks.Find(fillStationTimeBreak.Id).TimeBreakId;
+                    ViewBag.FillStationId = ListFillStationsByUserIdEdit.createListItems(db, userId, fillstation2);
+                    ViewBag.TimeBreakId = ListTimeBreakFillEdit.createListItems(db, timebreak2);
+
+                    return View(fillStationTimeBreak);
+
+                }
+
                 db.Entry(fillStationTimeBreak).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FillStationId = new SelectList(db.FillStations, "Id", "Name", fillStationTimeBreak.FillStationId);
-            ViewBag.TimeBreakId = new SelectList(db.TimeBreaks, "TimeBreakId", "TimeBreakId", fillStationTimeBreak.TimeBreakId);
+            var user = User.Identity.GetUserId();
+            int fillstation = db.FillStationTimeBreaks.Find(fillStationTimeBreak.Id).FillStationId;
+            int timebreak = db.FillStationTimeBreaks.Find(fillStationTimeBreak.Id).TimeBreakId;
+            ViewBag.FillStationId = ListFillStationsByUserIdEdit.createListItems(db, user, fillstation);
+            ViewBag.TimeBreakId = ListTimeBreakFillEdit.createListItems(db, timebreak);
             return View(fillStationTimeBreak);
         }
 

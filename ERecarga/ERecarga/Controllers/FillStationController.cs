@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ERecarga.App_Code;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.Validation;
 using Microsoft.AspNet.Identity;
 
 namespace ERecarga.Controllers
@@ -67,6 +68,23 @@ namespace ERecarga.Controllers
 
             if (ModelState.IsValid)
             {
+
+                if (ValidateFillStation.AlreadyExistsFillStation(fillStation))
+                {
+
+                    ModelState.AddModelError(string.Empty, "O posto já existe na base de dados.");
+
+                    var userId = User.Identity.GetUserId();
+
+                    if (User.IsInRole("Admin"))
+                        ViewBag.StationIdList = ListStationByUserId.createallListItems(db);
+                    else
+                        ViewBag.StationIdList = ListStationByUserId.createListItems(db, userId);
+
+                    return View(fillStation);
+
+                }
+
                 db.FillStations.Add(fillStation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -104,6 +122,23 @@ namespace ERecarga.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (ValidateFillStation.AlreadyExistsFillStation(fillStation))
+                {
+
+                    ModelState.AddModelError(string.Empty, "O posto já existe na base de dados.");
+
+                    var userId = User.Identity.GetUserId();
+
+                    if (User.IsInRole("Admin"))
+                        ViewBag.StationIdList = ListStationByUserId.createallListItems(db);
+                    else
+                        ViewBag.StationIdList = ListStationByUserId.createListItems(db, userId);
+
+                    return View(fillStation);
+
+                }
+
                 db.Entry(fillStation).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
