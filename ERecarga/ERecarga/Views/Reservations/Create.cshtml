@@ -5,8 +5,8 @@
 }
 
 <h2>Nova Reserva</h2>
-
-
+<hr />
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 <table class="table">
     <tr>
         <th>
@@ -36,45 +36,45 @@
 
     @foreach (var item in Model)
     {
-    <tr>
+        <tr>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-            <td>
-                @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Station.Region.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Station.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FillStationTimeBreak.TimeBreak.Begin)
-                Às
-                @Html.DisplayFor(modelItem => item.FillStationTimeBreak.TimeBreak.End)
-                <input type="hidden" name="TimeBreakId" value="@(item.FillStationTimeBreakId)" />
-            </td>
-            <td>
-                <div class="form-group">
-                    <input type="date" name="submitdate" class="form-control" required>
-                </div>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price) €
-                <input type="hidden" name="Price" value="@(item.Price)" />
-            </td>
-            <td>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Reservar" class="btn btn-primary" />
+                <td>
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Station.Region.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Station.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.FillStation.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.TimeBreak.Begin)
+                    Às
+                    @Html.DisplayFor(modelItem => item.FillStationTimeBreak.TimeBreak.End)
+                    <input type="hidden" name="TimeBreakId" value="@(item.FillStationTimeBreakId)" />
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="date" name="submitdate" class="form-control" required>
                     </div>
-                </div>
-            </td>
-        }
-    </tr>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price) €
+                    <input type="hidden" name="Price" value="@(item.Price)" />
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Reservar" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </td>
+            }
+        </tr>
     }
 
 </table>

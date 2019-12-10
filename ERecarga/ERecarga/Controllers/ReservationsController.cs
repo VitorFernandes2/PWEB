@@ -84,7 +84,7 @@ namespace ERecarga.Controllers
             }
             else
             {
-                ModelState.AddModelError("ErrorReserv", "O intervalo de tempo já existe na base de dados.");
+                ModelState.AddModelError(string.Empty, "A reserva já existe na base de dados.");
             }
 
             return View(ListReservationViewModel.createListItems(db));
