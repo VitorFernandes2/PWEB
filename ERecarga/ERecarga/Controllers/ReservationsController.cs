@@ -1,6 +1,7 @@
 ﻿using ERecarga.App_Code;
 using ERecarga.DAL;
 using ERecarga.Models;
+using ERecarga.Validation;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -75,11 +76,15 @@ namespace ERecarga.Controllers
                 reservation.UserId = User.Identity.GetUserId();
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && !ValidateReservation.AlreadyExistsReservation(reservation))
             {
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("ErrorReserv", "O intervalo de tempo já existe na base de dados.");
             }
 
             return View(ListReservationViewModel.createListItems(db));
