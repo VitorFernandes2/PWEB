@@ -403,3 +403,5 @@ C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecar
 C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.csproj.CopyComplete
 C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.dll
 C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.pdb
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.removeTimeFromStation.resources
+C:\Users\Joao Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.removeStateFromReservation.resources

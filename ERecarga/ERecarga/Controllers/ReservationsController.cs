@@ -21,7 +21,14 @@ namespace ERecarga.Controllers
         [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Index()
         {
-            return View(db.Reservations.ToList());
+            if (!User.IsInRole("User"))
+            {
+                return View(db.Reservations.ToList());
+            }
+            else
+            {
+                return View(db.Reservations.ToList().Where(m => m.UserId == User.Identity.GetUserId()));
+            }
         }
 
         // GET: Reservations/Details/5
