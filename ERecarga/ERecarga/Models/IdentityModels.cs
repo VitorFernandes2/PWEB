@@ -39,6 +39,7 @@ namespace ERecarga.Models
         public virtual DbSet<FillStation> FillStations { get; set; }
         public virtual DbSet<FillStationTimeBreak> FillStationTimeBreaks { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<BankInfo> BankInfos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

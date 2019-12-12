@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ERecarga.Models;
+using ERecarga.DAL;
 
 namespace ERecarga.Controllers
 {
@@ -158,13 +159,28 @@ namespace ERecarga.Controllers
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     await this.UserManager.AddToRoleAsync(user.Id, model.Role);
+                    //Session["Role"] = model.Role;
 
-                    //this.UserManager.AddToRole(user.Id, model.Role);
+                    ////this.UserManager.AddToRole(user.Id, model.Role);
+
+                    //ClaimsIdentity identity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
+
+                    //identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, model.Email));
+                    //identity.AddClaim(new Claim(ClaimTypes.Role, model.Role));
 
                     //IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
                     //authenticationManager.SignOut("ApplicationCookie");
-                    //authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, user);
+                    //authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, identity);
                     //SignInManager.SignIn(user, false, false);
+
+                    //temp
+                    ApplicationDbContext db = new ApplicationDbContext();
+                    BankInfo env = new BankInfo();
+                    env.UserId = user.Id;
+                    env.NIB = 321321321;
+                    env.Quant = 10.0;
+                    db.BankInfos.Add(env);
+                    db.SaveChanges();
 
                     return RedirectToAction("Index", "Home");
                 }

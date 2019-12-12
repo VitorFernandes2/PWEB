@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ERecarga.Models;
+using ERecarga.DAL;
+using System.Collections.Generic;
 
 namespace ERecarga.Controllers
 {
@@ -68,9 +70,23 @@ namespace ERecarga.Controllers
             if (User.IsInRole("User")) ViewBag.Role = "User";
             if (User.IsInRole("Admin")) ViewBag.Role = "Admin";
             if (User.IsInRole("Owner")) ViewBag.Role = "Owner";
+            
+            ApplicationDbContext db = new ApplicationDbContext();
 
+            var userId = User.Identity.GetUserId();
 
-        var userId = User.Identity.GetUserId();
+            foreach (BankInfo item in db.BankInfos.ToList())
+            {
+
+                if (item.UserId == userId)
+                {
+                    ViewBag.NIB = item.NIB;
+                    ViewBag.quant = item.Quant;
+                    break;
+                }
+
+            }
+            
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),

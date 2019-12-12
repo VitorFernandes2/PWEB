@@ -190,6 +190,7 @@
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Controllers\TimeBreakController.cs" />
+    <Compile Include="DAL\BankInfo.cs" />
     <Compile Include="DAL\FillStation.cs" />
     <Compile Include="DAL\FillStationTimeBreak.cs" />
     <Compile Include="DAL\Promotion.cs" />
@@ -324,6 +325,14 @@
     <Compile Include="Migrations\201912041803543_removeStateFromReservation.cs" />
     <Compile Include="Migrations\201912041803543_removeStateFromReservation.Designer.cs">
       <DependentUpon>201912041803543_removeStateFromReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912112322231_BankInfomig.cs" />
+    <Compile Include="Migrations\201912112322231_BankInfomig.Designer.cs">
+      <DependentUpon>201912112322231_BankInfomig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912112339401_BankInfo2.cs" />
+    <Compile Include="Migrations\201912112339401_BankInfo2.Designer.cs">
+      <DependentUpon>201912112339401_BankInfo2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -540,6 +549,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912041803543_removeStateFromReservation.resx">
       <DependentUpon>201912041803543_removeStateFromReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912112322231_BankInfomig.resx">
+      <DependentUpon>201912112322231_BankInfomig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912112339401_BankInfo2.resx">
+      <DependentUpon>201912112339401_BankInfo2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
