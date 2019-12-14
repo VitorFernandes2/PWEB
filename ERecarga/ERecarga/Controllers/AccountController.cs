@@ -177,7 +177,7 @@ namespace ERecarga.Controllers
                     ApplicationDbContext db = new ApplicationDbContext();
                     BankInfo env = new BankInfo();
                     env.UserId = user.Id;
-                    env.NIB = 321321321;
+                    env.NIB = model.NIB;
                     env.Quant = 10.0;
                     db.BankInfos.Add(env);
                     db.SaveChanges();

@@ -72,6 +72,11 @@ namespace ERecarga.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "NIB")]
+        [DataType(DataType.CreditCard)]
+        public int NIB { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
