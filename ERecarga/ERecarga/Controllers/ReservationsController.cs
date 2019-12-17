@@ -85,8 +85,37 @@ namespace ERecarga.Controllers
 
             if (ModelState.IsValid && !ValidateReservation.AlreadyExistsReservation(reservation))
             {
-                db.Reservations.Add(reservation);
-                db.SaveChanges();
+                // ver se o utilizador tem dinheiro suficiente
+                var userId = User.Identity.GetUserId();
+                foreach (BankInfo item in db.BankInfos.ToList())
+                {
+
+                    if (item.UserId == userId)
+                    {
+
+                        if (reservation.Price < item.Quant)
+                        {
+                            item.Quant = item.Quant - reservation.Price;
+
+                            //// atualizar a base de dados
+                            db.Reservations.Add(reservation);
+                            db.SaveChanges();
+
+                        }
+                        else
+                        {
+                            ModelState.AddModelError(string.Empty, "Não tem dinheiro suficiente.");
+                            return View(ListReservationViewModel.createListItems(db));
+                        }
+
+                        break;
+                    }
+
+                }
+
+                //// atualizar a base de dados
+                //db.Reservations.Add(reservation);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             else

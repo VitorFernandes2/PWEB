@@ -1,3 +1,4 @@
+using ERecarga.DAL;
 using ERecarga.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
@@ -68,6 +69,21 @@ namespace ERecarga
             var user = await UserManager.FindByIdAsync(id);
 
             ViewBag.RoleNames = await UserManager.GetRolesAsync(user.Id);
+
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            var userId = id;
+            foreach (BankInfo item in db.BankInfos.ToList())
+            {
+
+                if (item.UserId == userId)
+                {
+                    ViewBag.quant = item.Quant;
+                    ViewBag.NIB = item.NIB;
+                    break;
+                }
+
+            }
 
             return View(user);
         }
