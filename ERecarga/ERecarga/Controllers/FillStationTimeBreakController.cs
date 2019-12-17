@@ -11,6 +11,7 @@ using ERecarga.DAL;
 using ERecarga.Models;
 using ERecarga.Validation;
 using Microsoft.AspNet.Identity;
+using PagedList;
 
 namespace ERecarga.Controllers
 {
@@ -20,10 +21,12 @@ namespace ERecarga.Controllers
 
         // GET: FillStationTimeBreak
         [Authorize(Roles = "Owner, Admin")]
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
             var fillStationTimeBreaks = db.FillStationTimeBreaks.Include(f => f.FillStation).Include(f => f.TimeBreak);
-            return View(fillStationTimeBreaks.ToList());
+            var po = fillStationTimeBreaks.ToList();
+            int pag = (pagina ?? 1);
+            return View(po.ToPagedList(pag, 5));
         }
 
         // GET: FillStationTimeBreak/Details/5

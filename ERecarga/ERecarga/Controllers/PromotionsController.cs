@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
 using ERecarga.ViewModels;
+using PagedList;
 
 namespace ERecarga.Controllers
 {
@@ -18,10 +19,12 @@ namespace ERecarga.Controllers
 
         // GET: Promotions
         [Authorize(Roles = "Owner, Admin")]
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
             var promotions = db.Promotions.Include(p => p.FillStation);
-            return View(promotions.ToList());
+            var po = promotions.ToList();
+            int pag = (pagina ?? 1);
+            return View(po.ToPagedList(pag, 5));
         }
 
         // GET: Promotions/Details/5

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ERecarga.DAL.TimeBreak>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList<ERecarga.DAL.TimeBreak>
 
 @{
     ViewBag.Title = "Horas";
@@ -18,17 +20,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            Das @Html.DisplayFor(modelItem => item.Begin)h ás @Html.DisplayFor(modelItem => item.End)h
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.TimeBreakId }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.TimeBreakId }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.TimeBreakId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                Das @Html.DisplayFor(modelItem => item.Begin)h ás @Html.DisplayFor(modelItem => item.End)h
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.TimeBreakId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.TimeBreakId }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.TimeBreakId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@Html.PagedListPager(Model, pagina => Url.Action("Create", new { pagina }))
+

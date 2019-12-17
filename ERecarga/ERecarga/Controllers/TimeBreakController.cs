@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ERecarga.DAL;
 using ERecarga.Models;
 using ERecarga.Validation;
+using PagedList;
 
 namespace ERecarga.Controllers
 {
@@ -18,9 +19,11 @@ namespace ERecarga.Controllers
 
         // GET: TimeBreak
         [Authorize(Roles = "Admin")]
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
-            return View(db.TimeBreaks.ToList());
+            var po = db.TimeBreaks.ToList();
+            int pag = (pagina ?? 1);
+            return View(po.ToPagedList(pag, 5));
         }
 
         // GET: TimeBreak/Details/5

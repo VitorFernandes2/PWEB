@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ERecarga.DAL.Region>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList<ERecarga.DAL.Region>
 
 @{
     ViewBag.Title = "Index";
@@ -12,22 +14,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.First().Name)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RegionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RegionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RegionId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RegionId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RegionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RegionId })
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }))
