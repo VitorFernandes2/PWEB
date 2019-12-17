@@ -12,6 +12,7 @@ using ERecarga.Models;
 using ERecarga.Validation;
 using ERecarga.ViewModels;
 using Microsoft.AspNet.Identity;
+using PagedList;
 
 namespace ERecarga.Controllers
 {
@@ -21,9 +22,11 @@ namespace ERecarga.Controllers
 
         // GET: Station
         [Authorize(Roles = "Owner, Admin")]
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
-            return View(db.Stations.ToList());
+            var po = db.Stations.ToList();
+            int pag = (pagina ?? 1);
+            return View(po.ToPagedList(pag, 5));
         }
 
         // GET: Station/Details/5

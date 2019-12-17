@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ERecarga.DAL.Reservation>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList<ERecarga.DAL.Reservation>
 
 @{
     ViewBag.Title = "Index";
@@ -12,16 +14,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserId)
+            @Html.DisplayNameFor(model => model.First().UserId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FillStationTimeBreakId)
+            @Html.DisplayNameFor(model => model.First().FillStationTimeBreakId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Day)
+            @Html.DisplayNameFor(model => model.First().Day)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.First().Price)
         </th>
         <th></th>
     </tr>
@@ -49,3 +51,5 @@
     }
 
 </table>
+@Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }))
+
