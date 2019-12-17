@@ -1,4 +1,7 @@
-﻿@model List<ERecarga.ViewModels.ReservationViewModel>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList<ERecarga.ViewModels.ReservationViewModel>
 
 @{
     ViewBag.Title = "Nova Reserva";
@@ -34,7 +37,7 @@
 
 
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.ToList())
     {
         <tr>
 
@@ -78,4 +81,6 @@
     }
 
 </table>
+
+@Html.PagedListPager(Model, pagina => Url.Action("Create", new { pagina }))
 

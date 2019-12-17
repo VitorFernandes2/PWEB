@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace ERecarga.Controllers
 {
@@ -19,15 +20,19 @@ namespace ERecarga.Controllers
 
         // GET: Reservations
         [Authorize(Roles = "Owner, Admin, User")]
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
             if (!User.IsInRole("User"))
             {
-                return View(db.Reservations.ToList());
+                var po = db.Reservations.ToList();
+                int pag = (pagina ?? 1);
+                return View(po.ToPagedList(pag, 5));
             }
             else
             {
-                return View(db.Reservations.ToList().Where(m => m.UserId == User.Identity.GetUserId()));
+                var po = db.Reservations.ToList().Where(m => m.UserId == User.Identity.GetUserId());
+                int pag = (pagina ?? 1);
+                return View(po.ToPagedList(pag, 5));
             }
         }
 
@@ -49,9 +54,10 @@ namespace ERecarga.Controllers
 
         // GET: Reservations/Create
         [Authorize(Roles = "Owner, Admin, User")]
-        public ActionResult Create()
+        public ActionResult Create(int? pagina)
         {
-            return View(ListReservationViewModel.createListItems(db));
+            int pag = (pagina ?? 1);
+            return View(ListReservationViewModel.createListItems(db).ToPagedList(pag, 5));
         }
 
         // POST: Reservations/Create
