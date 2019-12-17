@@ -10,7 +10,7 @@ namespace ERecarga.DAL
     public partial class BankInfo
     {
         public int Id { get; set; }
-        public int NIB { get; set; }
+        public long? NIB { get; set; }
         public double Quant { get; set; }
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }

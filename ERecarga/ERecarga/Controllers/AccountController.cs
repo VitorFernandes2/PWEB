@@ -159,21 +159,7 @@ namespace ERecarga.Controllers
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     await this.UserManager.AddToRoleAsync(user.Id, model.Role);
-                    //Session["Role"] = model.Role;
 
-                    ////this.UserManager.AddToRole(user.Id, model.Role);
-
-                    //ClaimsIdentity identity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
-
-                    //identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, model.Email));
-                    //identity.AddClaim(new Claim(ClaimTypes.Role, model.Role));
-
-                    //IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
-                    //authenticationManager.SignOut("ApplicationCookie");
-                    //authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, identity);
-                    //SignInManager.SignIn(user, false, false);
-
-                    //temp
                     ApplicationDbContext db = new ApplicationDbContext();
                     BankInfo env = new BankInfo();
                     env.UserId = user.Id;
@@ -181,6 +167,10 @@ namespace ERecarga.Controllers
                     env.Quant = 10.0;
                     db.BankInfos.Add(env);
                     db.SaveChanges();
+
+                    LogOff();
+                    await SignInManager.PasswordSignInAsync(model.Email, model.Password, false, shouldLockout: false);
+
 
                     return RedirectToAction("Index", "Home");
                 }

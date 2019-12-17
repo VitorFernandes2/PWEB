@@ -334,6 +334,10 @@
     <Compile Include="Migrations\201912112339401_BankInfo2.Designer.cs">
       <DependentUpon>201912112339401_BankInfo2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912171633494_niblong.cs" />
+    <Compile Include="Migrations\201912171633494_niblong.Designer.cs">
+      <DependentUpon>201912171633494_niblong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -555,6 +559,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912112339401_BankInfo2.resx">
       <DependentUpon>201912112339401_BankInfo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912171633494_niblong.resx">
+      <DependentUpon>201912171633494_niblong.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -74,7 +74,7 @@ namespace ERecarga.Models
         [Required]
         [Display(Name = "NIB")]
         [DataType(DataType.CreditCard)]
-        public int NIB { get; set; }
+        public long? NIB { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
