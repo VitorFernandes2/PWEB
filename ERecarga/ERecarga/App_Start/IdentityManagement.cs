@@ -28,6 +28,10 @@ namespace ERecarga
         [EmailAddress]
         public string Email { get; set; }
 
+        public int NIB { get; set; }
+
+        public int Quant { get; set; }
+
         public IEnumerable<SelectListItem> RolesList { get; set; }
     }
 

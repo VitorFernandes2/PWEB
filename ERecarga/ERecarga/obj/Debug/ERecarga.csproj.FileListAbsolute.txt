@@ -549,3 +549,6 @@ C:\Users\João Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERe
 C:\Users\João Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.niblong.resources
 C:\Users\João Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.dll
 C:\Users\João Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.xml
+C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.dll
+C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.xml
+C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.Migrations.niblong.resources

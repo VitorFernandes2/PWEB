@@ -150,6 +150,21 @@ namespace ERecarga
 
             var userRoles = await UserManager.GetRolesAsync(user.Id);
 
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            var userId = id;
+            foreach (BankInfo item in db.BankInfos.ToList())
+            {
+
+                if (item.UserId == userId)
+                {
+                    ViewBag.Quant = item.Quant;
+                    ViewBag.NIB = item.NIB;
+                    break;
+                }
+
+            }
+
             return View(new EditUserViewModel()
             {
                 Id = user.Id,
@@ -167,7 +182,7 @@ namespace ERecarga
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Email,Id")] EditUserViewModel editUser, params string[] selectedRole)
+        public async Task<ActionResult> Edit([Bind(Include = "Email,Id,NIB,Quant")] EditUserViewModel editUser, params string[] selectedRole)
         {
             if (ModelState.IsValid)
             {
@@ -179,6 +194,22 @@ namespace ERecarga
 
                 user.UserName = editUser.Email;
                 user.Email = editUser.Email;
+
+                //nib e quant
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                var userId = user.Id;
+                foreach (BankInfo item in db.BankInfos.ToList())
+                {
+
+                    if (item.UserId == userId)
+                    {
+                        item.NIB = editUser.NIB;
+                        item.Quant = editUser.Quant;
+                    }
+
+                }
+                //---------------
 
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
 
@@ -198,6 +229,7 @@ namespace ERecarga
                     ModelState.AddModelError("", result.Errors.First());
                     return View();
                 }
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Something failed.");
