@@ -19,7 +19,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("E-Recarga", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if (!User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("E-Recarga", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,6 +38,7 @@
                         <li>@Html.ActionLink("Promoções", "Index", "Promotions")</li>
                         <li>@Html.ActionLink("Intervalos por Estação", "Index", "FillStationTimeBreak")</li>
                         <li>@Html.ActionLink("Reservas", "Index", "Reservations")</li>
+                        <li>@Html.ActionLink("Gestão","Index","UsersAdmin")</li>
 
                     }
 
