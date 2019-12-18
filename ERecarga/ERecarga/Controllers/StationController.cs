@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using ERecarga.App_Code;
 using ERecarga.DAL;
 using ERecarga.Models;
@@ -93,34 +94,28 @@ namespace ERecarga.Controllers
 
             if (User.IsInRole("Admin"))
             {
-                List<String> lista = new List<String>();
+                List<SelectListItem> lista = new List<SelectListItem>();
 
-                /*foreach(var item in db.Roles)
+                string ownerid = null;
+                foreach (var item2 in db.Roles)
                 {
-                    foreach(var item2 in item.Users)
-                    {
-                        string id = item2.UserId;
-                        user
-
-                        if(db.Users.Where(m =>m.Id == id).IsInRole("Owner"))
-                        {
-
-                        }
-
-                    }
-
-                }*/
-
-                foreach(var item in db.Users)
-                {
-                    lista.Add(item.Email);
+                    if (item2.Name == ("Owner"))
+                        ownerid = item2.Id;
                 }
-                //ViewBag.userlist = lista;
-                //ViewBag.userlist = new SelectList(lista, "Value", "Text");
+
+                foreach (var item in db.Users.ToList())
+                {
+                    var roleid = item.Roles.Select(x => x.RoleId);
+
+                    if(roleid.Count() != 0)
+                        if(roleid.First() == ownerid)
+                            lista.Add(new SelectListItem { Text = $"{item.Email}", Value = $"{item.Id}" });
+
+                }
+
+                ViewBag.userlist = new SelectList(lista, "Value", "Text");
 
             }
-
-
 
             return View(new StationViewModel(db));
         }
@@ -135,7 +130,8 @@ namespace ERecarga.Controllers
         {
 
             var errors = ModelState.Values.SelectMany(v => v.Errors);
-            station.OwnerId = User.Identity.GetUserId();
+            if(!User.IsInRole("Admin"))
+                station.OwnerId = User.Identity.GetUserId();
 
             if (ModelState.IsValid)
             {
