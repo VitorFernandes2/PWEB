@@ -20,17 +20,59 @@ namespace ERecarga.Controllers
 
         // GET: Reservations
         [Authorize(Roles = "Owner, Admin, User")]
-        public ActionResult Index(int? pagina)
+        public ActionResult Index(int? pagina, string procura, string regiao, string intervalo)
         {
             if (!User.IsInRole("User"))
             {
                 var po = db.Reservations.ToList();
+
+                if (!String.IsNullOrEmpty(procura))
+                {
+                    po = po.Where(f => f.FillStationTimeBreak.FillStation.Name.Contains(procura)).ToList();
+                }
+
+                if (!String.IsNullOrEmpty(regiao) && !regiao.Contains("*"))
+                {
+                    int regionId = Int32.Parse(regiao);
+                    po = po.Where(f => f.FillStationTimeBreak.FillStation.Station.RegionId == regionId).ToList();
+                }
+
+                if (!String.IsNullOrEmpty(intervalo) && !intervalo.Contains("*"))
+                {
+                    int timeBreakId = Int32.Parse(intervalo);
+                    po = po.Where(f => f.FillStationTimeBreak.TimeBreakId == timeBreakId).ToList();
+                }
+
+                ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
+                ViewBag.TimeBreakList = ListTimeBreakFilter.createListItems(db);
+
                 int pag = (pagina ?? 1);
                 return View(po.ToPagedList(pag, 5));
             }
             else
             {
                 var po = db.Reservations.ToList().Where(m => m.UserId == User.Identity.GetUserId());
+
+                if (!String.IsNullOrEmpty(procura))
+                {
+                    po = po.Where(f => f.FillStationTimeBreak.FillStation.Name.Contains(procura)).ToList();
+                }
+
+                if (!String.IsNullOrEmpty(regiao) && !regiao.Contains("*"))
+                {
+                    int regionId = Int32.Parse(regiao);
+                    po = po.Where(f => f.FillStationTimeBreak.FillStation.Station.RegionId == regionId).ToList();
+                }
+
+                if (!String.IsNullOrEmpty(intervalo) && !intervalo.Contains("*"))
+                {
+                    int timeBreakId = Int32.Parse(intervalo);
+                    po = po.Where(f => f.FillStationTimeBreak.TimeBreakId == timeBreakId).ToList();
+                }
+
+                ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
+                ViewBag.TimeBreakList = ListTimeBreakFilter.createListItems(db);
+
                 int pag = (pagina ?? 1);
                 return View(po.ToPagedList(pag, 5));
             }
@@ -56,16 +98,53 @@ namespace ERecarga.Controllers
         [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Create(int? pagina)
         {
+
+            var po = ListReservationViewModel.createListItems(db);
+
+            ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
+            ViewBag.TimeBreakList = ListTimeBreakFilter.createListItems(db);
+
             int pag = (pagina ?? 1);
-            return View(ListReservationViewModel.createListItems(db).ToPagedList(pag, 5));
+            return View(po.ToPagedList(pag, 5));
         }
 
         // POST: Reservations/Create
         [HttpPost]
         [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Create(double? Price,
-            DateTime? submitdate, int? TimeBreakId)
+            DateTime? submitdate, int? TimeBreakId, int? pagina, string procura, string regiao, string intervalo)
         {
+
+            int pag = 0;
+
+            if (!String.IsNullOrEmpty(procura) || !String.IsNullOrEmpty(regiao) || !String.IsNullOrEmpty(intervalo))
+            {
+
+                var po = ListReservationViewModel.createListItems(db);
+                ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
+                ViewBag.TimeBreakList = ListTimeBreakFilter.createListItems(db);
+
+                if (!String.IsNullOrEmpty(procura))
+                {
+                    po = po.Where(f => f.FillStationTimeBreak.FillStation.Name.Contains(procura)).ToList();
+                }
+
+                if (!String.IsNullOrEmpty(regiao) && !regiao.Contains("*"))
+                {
+                    int regionId = Int32.Parse(regiao);
+                    po = po.Where(f => f.FillStationTimeBreak.FillStation.Station.RegionId == regionId).ToList();
+                }
+
+                if (!String.IsNullOrEmpty(intervalo) && !intervalo.Contains("*"))
+                {
+                    int timeBreakId = Int32.Parse(intervalo);
+                    po = po.Where(f => f.FillStationTimeBreak.TimeBreakId == timeBreakId).ToList();
+                }
+
+                pag = (pagina ?? 1);
+                return View(po.ToPagedList(pag, 5));
+
+            }
 
             Reservation reservation = new Reservation();
 
@@ -111,7 +190,8 @@ namespace ERecarga.Controllers
                         else
                         {
                             ModelState.AddModelError(string.Empty, "Não tem dinheiro suficiente.");
-                            return View(ListReservationViewModel.createListItems(db));
+                            pag = (pagina ?? 1);
+                            return View(ListReservationViewModel.createListItems(db).ToPagedList(pag, 5));
                         }
 
                         break;
@@ -129,7 +209,8 @@ namespace ERecarga.Controllers
                 ModelState.AddModelError(string.Empty, "A reserva já existe na base de dados.");
             }
 
-            return View(ListReservationViewModel.createListItems(db));
+            pag = (pagina ?? 1);
+            return View(ListReservationViewModel.createListItems(db).ToPagedList(pag, 5));
 
         }
 

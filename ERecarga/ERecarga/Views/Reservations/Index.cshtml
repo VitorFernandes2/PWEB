@@ -10,6 +10,32 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Index", "Reservations", FormMethod.Post))
+    {
+
+        <div class="form-inline">
+            <label>Filtrar por Nome</label> &nbsp
+            <div class="form-group">
+                @Html.TextBox("procura", null, new
+                {
+                    @class = "form-control",
+                    @placeholder = "Posto"
+                })
+            </div>
+            <label>Filtrar por intervalo</label> &nbsp
+            <div class="form-group">
+                @Html.DropDownList("intervalo", new SelectList(ViewBag.TimeBreakList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+            </div>
+            <label>Filtrar por Região</label> &nbsp
+            <div class="form-group">
+                @Html.DropDownList("regiao", new SelectList(ViewBag.ListRegions, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                &nbsp <button type="submit" class="btn btn-info">Filtrar</button>
+            </div>
+        </div>
+
+    }
 </p>
 <table class="table">
     <tr>
