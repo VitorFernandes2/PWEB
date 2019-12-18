@@ -19,9 +19,17 @@ namespace ERecarga.Controllers
 
         // GET: Region
         [Authorize(Roles = "Admin")]
-        public ActionResult Index(int? pagina)
+        public ActionResult Index(int? pagina, string procura)
         {
+
             var po = db.Regions.ToList();
+
+            if (!String.IsNullOrEmpty(procura))
+            {
+                po = po.Where(r => r.Name.Contains(procura)).ToList();
+            }
+
+            
             int pag = (pagina ?? 1);
             return View(po.ToPagedList(pag, 5));
         }

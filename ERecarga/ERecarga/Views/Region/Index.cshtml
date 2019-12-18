@@ -10,6 +10,24 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Index", "Region", FormMethod.Post))
+    {
+
+    <div class="form-inline">
+        <label>Filtrar por Região</label> &nbsp
+        <div class="form-group">
+            @Html.TextBox("procura", null, new
+            {
+                @class = "form-control",
+                @placeholder = "Região"
+            })
+        </div>
+        <div class="form-group">
+            &nbsp <button type="submit" class="btn btn-info">Filtrar</button>
+        </div>
+    </div>
+
+    }
 </p>
 <table class="table">
     <tr>
