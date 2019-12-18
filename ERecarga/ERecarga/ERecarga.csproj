@@ -182,12 +182,14 @@
     <Compile Include="App_Code\ListOwners.cs" />
     <Compile Include="App_Code\ListRegions.cs" />
     <Compile Include="App_Code\ListRegionsById.cs" />
+    <Compile Include="App_Code\ListRegionsFilter.cs" />
     <Compile Include="App_Code\ListReservationViewModel.cs" />
     <Compile Include="App_Code\ListStationByUserId.cs" />
     <Compile Include="App_Code\ListStationByUserIdEdit.cs" />
     <Compile Include="App_Code\ListStations.cs" />
     <Compile Include="App_Code\ListTimeBreakFillEdit.cs" />
     <Compile Include="App_Code\ListTimeBreakFill.cs" />
+    <Compile Include="App_Code\ListTimeBreakFilter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

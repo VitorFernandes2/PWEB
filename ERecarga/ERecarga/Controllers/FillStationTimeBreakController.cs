@@ -21,11 +21,35 @@ namespace ERecarga.Controllers
 
         // GET: FillStationTimeBreak
         [Authorize(Roles = "Owner, Admin")]
-        public ActionResult Index(int? pagina)
+        public ActionResult Index(int? pagina, string procura, string regiao, string intervalo)
         {
             var fillStationTimeBreaks = db.FillStationTimeBreaks.Include(f => f.FillStation).Include(f => f.TimeBreak);
             var po = fillStationTimeBreaks.ToList();
+
+            if (!String.IsNullOrEmpty(procura))
+            {
+                po = po.Where(f => f.FillStation.Name.Contains(procura)).ToList();
+            }
+
+            if (!String.IsNullOrEmpty(regiao) && !regiao.Contains("*"))
+            {
+                int regionId = Int32.Parse(regiao);
+                po = po.Where(f => f.FillStation.Station.RegionId == regionId).ToList();
+            }
+
+            if (!String.IsNullOrEmpty(intervalo) && !intervalo.Contains("*"))
+            {
+                int timeBreakId = Int32.Parse(intervalo);
+                po = po.Where(f => f.TimeBreakId == timeBreakId).ToList();
+            }
+
             int pag = (pagina ?? 1);
+
+            var user = User.Identity.GetUserId();
+
+            ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
+            ViewBag.TimeBreakList = ListTimeBreakFilter.createListItems(db);
+
             return View(po.ToPagedList(pag, 5));
         }
 

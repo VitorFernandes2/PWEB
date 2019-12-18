@@ -22,10 +22,25 @@ namespace ERecarga.Controllers
 
         // GET: Station
         [Authorize(Roles = "Owner, Admin")]
-        public ActionResult Index(int? pagina)
+        public ActionResult Index(int? pagina, string procura, string region)
         {
             var po = db.Stations.ToList();
+
+            if (!String.IsNullOrEmpty(procura))
+            {
+                po = po.Where(s => s.Name.Contains(procura)).ToList();
+            }
+
+            if (!String.IsNullOrEmpty(region) && !region.Contains("*"))
+            {
+                int regionId = Int32.Parse(region);
+
+                po = po.Where(s => s.RegionId == regionId).ToList();
+
+            }
+
             int pag = (pagina ?? 1);
+            ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
             return View(po.ToPagedList(pag, 5));
         }
 
