@@ -12,15 +12,15 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		text: "Gestão de Reservas por Estações"
 	},
 	subtitles: [{
-		text: "Q2, 2016"
+		text: ""
 	}],
 	data: [{
 		type: "pie",
 		startAngle: 180,
-		toolTipContent: "<b>{label}</b>: {y}%",
+		toolTipContent: "<b>{label}</b>: {y} reservas",
 		showInLegend: "true",
 		legendText: "{label}",
-		indexLabel: "{label} - {y}%",
+		indexLabel: "{label} - {y} reservas",
 		dataPoints: @Html.Raw(ViewBag.DataPoints)
 	}]
 });
@@ -30,6 +30,7 @@ chart.render();
     </script>
 </head>
 <body>
+	<br />
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
