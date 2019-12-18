@@ -126,12 +126,13 @@ namespace ERecarga.Controllers
 
             int pag = 0;
 
+            ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
+            ViewBag.TimeBreakList = ListTimeBreakFilter.createListItems(db);
+
             if (!String.IsNullOrEmpty(procura) || !String.IsNullOrEmpty(regiao) || !String.IsNullOrEmpty(intervalo))
             {
 
                 var po = ListReservationViewModel.createListItems(db);
-                ViewBag.ListRegions = ListRegionsFilter.createListItems(db);
-                ViewBag.TimeBreakList = ListTimeBreakFilter.createListItems(db);
 
                 if (!String.IsNullOrEmpty(procura))
                 {
@@ -157,13 +158,15 @@ namespace ERecarga.Controllers
 
             Reservation reservation = new Reservation();
 
-            if (Price != null)
-                reservation.Price = (double)Price;
+            if (TimeBreakId != null)
+                reservation.FillStationTimeBreakId = (int)TimeBreakId;
             else
                 return View(ListReservationViewModel.createListItems(db));
 
-            if (TimeBreakId != null)
-                reservation.FillStationTimeBreakId = (int)TimeBreakId;
+            int fillStationId = db.FillStationTimeBreaks.Find(TimeBreakId).FillStationId;
+
+            if (Price != null)
+                reservation.Price = VerifyPromotion.verifyPrice(db, (DateTime)submitdate,fillStationId);
             else
                 return View(ListReservationViewModel.createListItems(db));
 
@@ -217,6 +220,8 @@ namespace ERecarga.Controllers
             {
                 ModelState.AddModelError(string.Empty, "A reserva já existe na base de dados.");
             }
+
+
 
             pag = (pagina ?? 1);
             return View(ListReservationViewModel.createListItems(db).ToPagedList(pag, 5));
