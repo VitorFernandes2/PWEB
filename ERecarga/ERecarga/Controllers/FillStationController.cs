@@ -24,7 +24,32 @@ namespace ERecarga.Controllers
         public ActionResult Index(int? pagina, string procura, string regiao)
         {
             var fillStations = db.FillStations.Include(f => f.Station);
-            var po = fillStations.ToList();
+            //var po = fillStations.ToList();
+            List<FillStation> po;
+
+            if (User.IsInRole("Admin"))
+            {
+                po = fillStations.ToList();
+            }
+            else
+            {
+                List<FillStation> selectListItems = new List<FillStation>();
+
+                foreach (var item in fillStations.ToList())
+                {
+                    foreach(var sation in db.Stations.ToList())
+                    {
+
+                        if(item.StationId == sation.Id && sation.OwnerId == User.Identity.GetUserId())
+                            selectListItems.Add(item);
+
+                    }
+
+                }
+
+                po = selectListItems;
+            }
+
 
             if (!String.IsNullOrEmpty(procura))
             {
@@ -57,6 +82,10 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
+            if (fillStation.Station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             return View(fillStation);
         }
 
@@ -83,6 +112,16 @@ namespace ERecarga.Controllers
         {
 
             fillStation.Open = true;
+
+            if (fillStation.Price == 0)
+            {
+                if (User.IsInRole("Admin"))
+                    ViewBag.StationIdList = ListStationByUserId.createallListItems(db);
+                else
+                    ViewBag.StationIdList = ListStationByUserId.createListItems(db, User.Identity.GetUserId());
+
+                return View(fillStation);
+            }
 
             if (ModelState.IsValid)
             {
@@ -124,6 +163,10 @@ namespace ERecarga.Controllers
             if (fillStation == null)
             {
                 return HttpNotFound();
+            } 
+            if (fillStation.Station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             var userId = User.Identity.GetUserId();
             ViewBag.StationIdList = ListStationByUserIdEdit.createListItems(db, userId, fillStation.StationId);
@@ -177,6 +220,10 @@ namespace ERecarga.Controllers
             if (fillStation == null)
             {
                 return HttpNotFound();
+            }
+            if (fillStation.Station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             return View(fillStation);
         }

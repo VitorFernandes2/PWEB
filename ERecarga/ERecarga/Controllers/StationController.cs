@@ -24,7 +24,26 @@ namespace ERecarga.Controllers
         [Authorize(Roles = "Owner, Admin")]
         public ActionResult Index(int? pagina, string procura, string region)
         {
-            var po = db.Stations.ToList();
+            //var po = db.Stations.ToList();
+
+            List<Station> po;
+
+            if (User.IsInRole("Admin"))
+            {
+                po = db.Stations.ToList();
+            }
+            else
+            {
+                List<Station> selectListItems = new List<Station>();
+
+                foreach (var item in db.Stations.ToList())
+                {
+                    if (item.OwnerId == User.Identity.GetUserId())
+                        selectListItems.Add(item);
+                }
+
+                po = selectListItems;
+            }
 
             if (!String.IsNullOrEmpty(procura))
             {
@@ -52,11 +71,18 @@ namespace ERecarga.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Station station = db.Stations.Find(id);
             if (station == null)
             {
                 return HttpNotFound();
             }
+            if (station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
+
             return View(station);
         }
 
@@ -64,6 +90,38 @@ namespace ERecarga.Controllers
         [Authorize(Roles = "Owner, Admin")]
         public ActionResult Create()
         {
+
+            if (User.IsInRole("Admin"))
+            {
+                List<String> lista = new List<String>();
+
+                /*foreach(var item in db.Roles)
+                {
+                    foreach(var item2 in item.Users)
+                    {
+                        string id = item2.UserId;
+                        user
+
+                        if(db.Users.Where(m =>m.Id == id).IsInRole("Owner"))
+                        {
+
+                        }
+
+                    }
+
+                }*/
+
+                foreach(var item in db.Users)
+                {
+                    lista.Add(item.Email);
+                }
+                //ViewBag.userlist = lista;
+                //ViewBag.userlist = new SelectList(lista, "Value", "Text");
+
+            }
+
+
+
             return View(new StationViewModel(db));
         }
 
@@ -115,6 +173,10 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
+            if (station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             ViewBag.ListRegions = ListRegionsById.createListItems(db, station.RegionId);
             return View(station);
         }
@@ -162,6 +224,10 @@ namespace ERecarga.Controllers
             if (station == null)
             {
                 return HttpNotFound();
+            }
+            if (station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             return View(station);
         }

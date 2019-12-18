@@ -37,5 +37,22 @@ namespace ERecarga.ViewModels
         {
             FillStationList = ListFillStation.createListItems(db);
         }
+
+        public PromotionViewModel(ApplicationDbContext db,string id)
+        {
+            FillStationList = ListFillStation.createListItems(db);
+
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+
+            foreach (var item in db.FillStations.ToList())
+            {
+
+                if (item.Station.OwnerId.Equals(id))
+                    selectListItems.Add(new SelectListItem { Text = $"{item.Name}", Value = $"{item.Id}" });
+
+            }
+
+            FillStationList = new SelectList(selectListItems, "Value", "Text");
+        }
     }
 }

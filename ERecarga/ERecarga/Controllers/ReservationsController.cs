@@ -91,6 +91,10 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
+            if (reservation.UserId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             return View(reservation);
         }
 
@@ -98,6 +102,11 @@ namespace ERecarga.Controllers
         [Authorize(Roles = "Owner, Admin, User")]
         public ActionResult Create(int? pagina)
         {
+
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index");
+            }
 
             var po = ListReservationViewModel.createListItems(db);
 
@@ -226,6 +235,10 @@ namespace ERecarga.Controllers
             if (reservation == null)
             {
                 return HttpNotFound();
+            }
+            if (reservation.UserId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             return View(reservation);
         }

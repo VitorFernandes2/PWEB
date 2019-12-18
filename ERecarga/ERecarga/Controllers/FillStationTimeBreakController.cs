@@ -24,7 +24,34 @@ namespace ERecarga.Controllers
         public ActionResult Index(int? pagina, string procura, string regiao, string intervalo)
         {
             var fillStationTimeBreaks = db.FillStationTimeBreaks.Include(f => f.FillStation).Include(f => f.TimeBreak);
-            var po = fillStationTimeBreaks.ToList();
+            //var po = fillStationTimeBreaks.ToList();
+            List<FillStationTimeBreak> po;
+
+            if (User.IsInRole("Admin"))
+            {
+                po = fillStationTimeBreaks.ToList();
+            }
+            else
+            {
+                List<FillStationTimeBreak> selectListItems = new List<FillStationTimeBreak>();
+
+                foreach (var item in fillStationTimeBreaks.ToList())
+                {
+                    foreach (var fillstat in db.FillStations.ToList())
+                    {
+                        foreach (var sation in db.Stations.ToList())
+                        {
+                            //fillstat.Station.OwnerId
+                            if (fillstat.StationId == sation.Id && item.FillStationId == fillstat.Id && sation.OwnerId == User.Identity.GetUserId())
+                                selectListItems.Add(item);
+
+                        }
+                    }
+                }
+
+                po = selectListItems;
+            }
+
 
             if (!String.IsNullOrEmpty(procura))
             {
@@ -65,6 +92,10 @@ namespace ERecarga.Controllers
             if (fillStationTimeBreak == null)
             {
                 return HttpNotFound();
+            }
+            if (!User.IsInRole("Admin") && fillStationTimeBreak.FillStation.Station.OwnerId != User.Identity.GetUserId() )
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             return View(fillStationTimeBreak);
         }
@@ -137,6 +168,10 @@ namespace ERecarga.Controllers
             {
                 return HttpNotFound();
             }
+            if (fillStationTimeBreak.FillStation.Station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             var user = User.Identity.GetUserId();
             int fillstation = db.FillStationTimeBreaks.Find(id).FillStationId;
             int timebreak = db.FillStationTimeBreaks.Find(id).TimeBreakId;
@@ -195,6 +230,10 @@ namespace ERecarga.Controllers
             if (fillStationTimeBreak == null)
             {
                 return HttpNotFound();
+            }
+            if (fillStationTimeBreak.FillStation.Station.OwnerId != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
 
             return View(fillStationTimeBreak);
