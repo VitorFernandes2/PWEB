@@ -184,6 +184,26 @@ namespace ERecarga
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Email,Id,NIB,Quant")] EditUserViewModel editUser, params string[] selectedRole)
         {
+            if (selectedRole.Length >= 2)
+            {
+                ModelState.AddModelError("", "So é possivel escolher 1 role por utilizador");
+                ViewBag.Quant = editUser.Quant;
+                ViewBag.NIB = editUser.NIB;
+                return View(new EditUserViewModel()
+                {
+                    Id = editUser.Id,
+                    Email = editUser.Email,
+                    NIB = editUser.NIB,
+                    Quant = editUser.Quant,
+                    RolesList = RoleManager.Roles.ToList().Select(x => new SelectListItem()
+                    {
+                        //Selected = userRoles.Contains(x.Name),
+                        Text = x.Name,
+                        Value = x.Name
+                    })
+                });
+            }
+            
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByIdAsync(editUser.Id);

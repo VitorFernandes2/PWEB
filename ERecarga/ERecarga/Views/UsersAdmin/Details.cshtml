@@ -20,9 +20,27 @@
         <dd>@ViewBag.quant</dd>
         <dt>NIB:</dt>
         <dd>@ViewBag.NIB</dd>
+        @if (ViewBag.RoleNames.Count == 0)
+        {
+            <hr />
+            <p>No roles found for this user.</p>
+        }
+        <dt>Role:</dt>
+        <dd>
+            @foreach (var item in ViewBag.RoleNames)
+            {
+                <tr>
+                    <td>
+                        @item
+                        
+                    </td>
+                </tr>
+            }
+            </dd>
+
     </dl>
 </div>
-<h4>List of roles for this user</h4>
+@*<h4>List of roles for this user</h4>
 @if (ViewBag.RoleNames.Count == 0)
 {
     <hr />
@@ -40,7 +58,7 @@
         </tr>
     }
 </table>
-<p>
+<p>*@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

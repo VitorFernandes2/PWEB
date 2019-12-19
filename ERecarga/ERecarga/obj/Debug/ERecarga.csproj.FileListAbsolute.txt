@@ -561,3 +561,5 @@ C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERe
 C:\Users\vitor\OneDrive - ISEC\Faculdade\3ano\1Sem\PWEB\TP\Res\PWEB\ERecarga\ERecarga\obj\Debug\ERecarga.csprojAssemblyReference.cache
 C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.Mvc.dll
 C:\Users\a21270909\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.Mvc.xml
+C:\Users\João Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.Mvc.dll
+C:\Users\João Coelho\Dropbox\Pweb\trabalho\PWEB\ERecarga\ERecarga\bin\PagedList.Mvc.xml
