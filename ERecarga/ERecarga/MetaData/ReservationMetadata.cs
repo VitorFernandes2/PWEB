@@ -14,6 +14,7 @@ namespace ERecarga.DAL
     {
 
         [Required]
+        [Display(Name = "ID do Intervalo de Estação")]
         public int FillStationTimeBreakId { get; set; }
         [DataType(DataType.Date)]
         [Required]

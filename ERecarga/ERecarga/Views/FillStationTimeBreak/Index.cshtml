@@ -6,10 +6,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Intervalos por Estação</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar Novo", "Create")
     @using (Html.BeginForm("Index", "FillStationTimeBreak", FormMethod.Post))
     {
 
@@ -64,9 +64,9 @@
                 @Html.DisplayFor(modelItem => item.TimeBreak.End)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

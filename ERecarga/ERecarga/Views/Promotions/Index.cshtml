@@ -6,24 +6,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Promoções</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar Novas", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.First().FillStation.Name)
+            @*@Html.DisplayNameFor(model => model.First().FillStation.Name)*@
+            @Html.DisplayName("Nome")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Price)
+            @*@Html.DisplayNameFor(model => model.First().Price)*@
+            @Html.DisplayName("Preço")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().PromotionStart)
+            @*@Html.DisplayNameFor(model => model.First().PromotionStart)*@
+            @Html.DisplayName("Inicio de Promoção")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().PromotionEnd)
+            @*@Html.DisplayNameFor(model => model.First().PromotionEnd)*@
+            @Html.DisplayName("Fim de Promoção")
         </th>
         <th></th>
     </tr>
@@ -44,9 +48,9 @@
                 @Html.DisplayFor(modelItem => item.PromotionEnd)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

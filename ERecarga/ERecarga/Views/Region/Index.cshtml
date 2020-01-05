@@ -6,10 +6,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Regiões</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar Nova", "Create")
     @using (Html.BeginForm("Index", "Region", FormMethod.Post))
     {
 
@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RegionId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RegionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RegionId })
+                @Html.ActionLink("Editar", "Edit", new { id = item.RegionId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.RegionId }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.RegionId })
             </td>
         </tr>
     }

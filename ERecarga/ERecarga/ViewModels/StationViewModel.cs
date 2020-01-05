@@ -13,9 +13,11 @@ namespace ERecarga.ViewModels
     {
 
         [Required]
+        [Display(Name = "ID do proprietário")]
         public string OwnerId { get; set; }
 
         [Required]
+        [Display(Name = "ID da região")]
         public int RegionId { get; set; }
         public SelectList Regions;
 

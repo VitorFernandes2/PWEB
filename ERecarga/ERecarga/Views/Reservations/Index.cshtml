@@ -6,10 +6,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Reservas</h2>
 
 <p>
-    @if (!User.IsInRole("Admin")){@Html.ActionLink("Create New", "Create")}
+    @if (!User.IsInRole("Admin")){@Html.ActionLink("Criar Nova", "Create")}
     @using (Html.BeginForm("Index", "Reservations", FormMethod.Post))
     {
 
@@ -70,8 +70,8 @@
                 @Html.DisplayFor(modelItem => item.Price) €
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.Id })
             </td>
         </tr>
     }
